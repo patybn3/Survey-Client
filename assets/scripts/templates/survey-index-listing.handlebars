@@ -1,0 +1,21 @@
+{{#each posts as |post|}}
+  <div data-id="{{post.id}}" class="box">
+    <h2 class='title'>
+      {{post.title}}
+    </h2>
+    <h4 class='author'>
+      {{#if post.author}}
+        by {{post.author}}
+      {{else}}
+        by Anonymous
+      {{/if}}
+    </h4>
+    <p class='body'>
+      {{post.body}}
+    </p>
+      {{#if post.editable}}
+        {{> remove-post id=post.id}}
+        {{> edit-post id=post.id}}
+      {{/if}}
+  </div>
+{{/each}}
