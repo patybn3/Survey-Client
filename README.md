@@ -14,3 +14,18 @@
 
 # Dependencies
 - [browser-template](https://git.generalassemb.ly/ga-wdi-boston/browser-template)
+
+# High Level Plan
+- One person:
+  - Download api template and push
+  - Deploy to heroku
+  - Download UI template and push
+  - Deploy to heroku
+- API Sign up, sign in
+- UI Sign up, sign in
+- Each team member
+  - Clones repos
+- Survey API CRUD for resource with no options
+- Survey UI CRUD for resource with no options
+- Options API (POST action: update)
+- Options UI
