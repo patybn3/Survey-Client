@@ -15,7 +15,6 @@ const displayLoggedOutHome = () => {
   $('#index-my-surveys-button').hide()
   $('#create-survey-form').hide()
   $('#edit-survey-form').hide()
-  onIndexAllSurveys()
 }
 
 // create survey event handlers on app load
