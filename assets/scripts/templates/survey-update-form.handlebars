@@ -1,0 +1,15 @@
+<form class="update-form form-group">
+  <fieldset>
+    <legend>Update A Survey</legend>
+    <label>Name:</label>
+    <input name='name' class="form-control" type='text' placeholder="name" value="{{survey.name}}" required>
+    <br>
+    <label>Description:</label>
+    <input name='description' class="form-control" type='text' placeholder="description" value="{{survey.description}}">
+    <br>
+    <label>Options:</label>
+    <textarea name='options' class="form-control" placeholder="here goes nothing!" rows="5" value="{{survey.options}}" required></textarea>
+    <br>
+    <input type='submit' class="form-control" value='Submit Survey'>
+  </fieldset>
+</form>

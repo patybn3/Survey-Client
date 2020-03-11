@@ -1,0 +1,21 @@
+{{#each surveys as |survey|}}
+  <div data-id="{{survey.id}}" class="box">
+    <h2 class='name'>
+      {{survey.name}}
+    </h2>
+    <h4 class='description'>
+      {{#if survey.description}}
+        by {{survey.description}}
+      {{else}}
+        by Anonymous
+      {{/if}}
+    </h4>
+    <p class='options'>
+      {{survey.options}}
+    </p>
+      {{#if survey.editable}}
+        {{> survey-delete-button id=survey.id}}
+        {{> survey-update-button id=survey.id}}
+      {{/if}}
+  </div>
+{{/each}}
