@@ -3,69 +3,69 @@
 const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('./../../../lib/get-form-fields')
-const postFormCreate = require('../templates/post-form-create.handlebars')
+const surveyFormCreate = require('../templates/survey-create-form.handlebars')
 const store = require('./../store')
 
 // initial page display
 const displayLoggedOutHome = () => {
   $('#change-password').hide()
   $('#sign-out').hide()
-  $('#create-post-button').hide()
-  $('#index-all-posts-button').hide()
-  $('#index-my-posts-button').hide()
-  $('#create-post-form').hide()
-  $('#edit-post-form').hide()
-  onIndexAllPosts()
+  $('#create-survey-button').hide()
+  $('#index-all-surveys-button').hide()
+  $('#index-my-surveys-button').hide()
+  $('#create-survey-form').hide()
+  $('#edit-survey-form').hide()
+  onIndexAllSurveys()
 }
 
-// create post event handlers on app load
+// create survey event handlers on app load
 const eventHandlers = () => {
-  $('#create-post-button').on('click', showFormForCreate)
-  $('#index-all-posts-button').on('click', onIndexAllPosts)
-  $('#index-my-posts-button').on('click', onIndexMyPosts)
-  $('#post-content').on('click', '.remove-post', onDeletePost)
-  $('#post-content').on('click', '.edit-post', onEditPostStart)
+  $('#create-survey-button').on('click', showFormForCreate)
+  $('#index-all-surveys-button').on('click', onIndexAllSurveys)
+  $('#index-my-surveys-button').on('click', onIndexMySurveys)
+  $('#survey-content').on('click', '.remove-survey', onDeleteSurvey)
+  $('#survey-content').on('click', '.edit-survey', onEditSurveyStart)
 
   // the 2nd parameter to these handlers is the optional
   // selector that doesn't exist yet, but will exist
-  // with #post-content once handlebars creates them.
+  // with #survey-content once handlebars creates them.
   // because they are forms, use an anonymous function to
   // preventDefault before sending them on.
-  $('#post-content').on('submit', '.create-form', function (event) {
+  $('#survey-content').on('submit', '.create-form', function (event) {
     event.preventDefault()
-    onCreateOrEditPost(event)
+    onCreateOrEditSurvey(event)
   })
-  $('#post-content').on('submit', '.update-form', function (event) {
+  $('#survey-content').on('submit', '.update-form', function (event) {
     event.preventDefault()
-    onEditPostSubmit(event)
+    onEditSurveySubmit(event)
   })
 }
 
-// event handler listens for when 'create post' button is clicked
+// event handler listens for when 'create survey' button is clicked
 const showFormForCreate = () => {
-  store.creatingPost = true
-  $('#create-post-button').hide()
-  $('#post-content').empty()
-  const postFormHtml = postFormCreate()
-  $('#post-content').html(postFormHtml)
+  store.creatingSurvey = true
+  $('#create-survey-button').hide()
+  $('#survey-content').empty()
+  const surveyFormHtml = surveyFormCreate()
+  $('#survey-content').html(surveyFormHtml)
 }
 
 // a similar form is used for creating and editing
 // so we funnel control flow through here
-const onCreateOrEditPost = (event) => {
-  if (store.creatingPost === true) {
-    onCreatePost(event)
+const onCreateOrEditSurvey = (event) => {
+  if (store.creatingSurvey === true) {
+    onCreateSurvey(event)
   } else {
-    onEditPostStart(event)
+    onEditSurveyStart(event)
   }
 }
 
-// event handler listens for when 'create post'
+// event handler listens for when 'create survey'
 // form submit is clicked
-const onCreatePost = (event) => {
+const onCreateSurvey = (event) => {
   const data = getFormFields(event.target)
-  const post = {
-    'post': {
+  const survey = {
+    'survey': {
       'title': data.title,
       'author': data.author,
       'body': data.body
@@ -74,28 +74,28 @@ const onCreatePost = (event) => {
   // anonymous function allows two lines to be written
   // and callback not to be invoked till response comes back
   // to .then()
-  api.createPost(post)
+  api.createSurvey(survey)
     .then(function () {
-      onIndexAllPosts(event)
+      onIndexAllSurveys(event)
     })
     .catch(ui.failure)
 }
 
-// when a user begins to update a post
-const onEditPostStart = (event) => {
-  store.creatingPost = false
+// when a user begins to update a survey
+const onEditSurveyStart = (event) => {
+  store.creatingSurvey = false
   const id = $(event.target).data('id')
-  api.showPost(id)
-    .then(ui.onShowPostSuccess)
+  api.showSurvey(id)
+    .then(ui.onShowSurveySuccess)
     .catch(ui.failure)
 }
 
-// when a user submits an edited post
-const onEditPostSubmit = (event) => {
+// when a user submits an edited survey
+const onEditSurveySubmit = (event) => {
   const data = getFormFields(event.target)
-  const id = store.post.post.id
-  const post = {
-    'post': {
+  const id = store.survey.survey.id
+  const survey = {
+    'survey': {
       'title': data.title,
       'author': data.author,
       'body': data.body
@@ -104,34 +104,34 @@ const onEditPostSubmit = (event) => {
   // anonymous function allows two lines to be written
   // and callback not to be invoked till response comes back
   // to .then()
-  api.editPost(post, id)
+  api.editSurvey(survey, id)
     .then(function () {
-      store.editingPost = true
-      onIndexAllPosts(event)
+      store.editingSurvey = true
+      onIndexAllSurveys(event)
     })
     .catch(ui.failure)
 }
 
-// get list of all posts
-const onIndexAllPosts = () => {
-  api.indexAllPosts()
-    .then(ui.onIndexAllPostsSuccess)
+// get list of all surveys
+const onIndexAllSurveys = () => {
+  api.indexAllSurveys()
+    .then(ui.onIndexAllSurveysSuccess)
     .catch(ui.failure)
 }
 
-// get list of just one user's posts
-const onIndexMyPosts = () => {
-  api.indexMyPosts()
-    .then(ui.onIndexMyPostsSuccess)
+// get list of just one user's surveys
+const onIndexMySurveys = () => {
+  api.indexMySurveys()
+    .then(ui.onIndexMySurveysSuccess)
     .catch(ui.failure)
 }
 
-// delete a user's post
-const onDeletePost = (event) => {
+// delete a user's survey
+const onDeleteSurvey = (event) => {
   event.preventDefault()
-  api.deletePost(event)
+  api.deleteSurvey(event)
     .then(function () {
-      onIndexAllPosts(event)
+      onIndexAllSurveys(event)
     })
     .catch(ui.failure)
 }
@@ -140,10 +140,10 @@ module.exports = {
   eventHandlers,
   displayLoggedOutHome,
   showFormForCreate,
-  onCreatePost,
-  onCreateOrEditPost,
-  onIndexAllPosts,
-  onDeletePost,
-  onEditPostStart,
-  onEditPostSubmit
+  onCreateSurvey,
+  onCreateOrEditSurvey,
+  onIndexAllSurveys,
+  onDeleteSurvey,
+  onEditSurveyStart,
+  onEditSurveySubmit
 }

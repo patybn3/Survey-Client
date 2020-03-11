@@ -1,21 +1,21 @@
-{{#each posts as |post|}}
-  <div data-id="{{post.id}}" class="box">
-    <h2 class='title'>
-      {{post.title}}
+{{#each surveys as |survey|}}
+  <div data-id="{{survey.id}}" class="box">
+    <h2 class='name'>
+      {{survey.name}}
     </h2>
-    <h4 class='author'>
-      {{#if post.author}}
-        by {{post.author}}
+    <h4 class='description'>
+      {{#if survey.description}}
+        by {{survey.description}}
       {{else}}
         by Anonymous
       {{/if}}
     </h4>
-    <p class='body'>
-      {{post.body}}
+    <p class='options'>
+      {{survey.options}}
     </p>
-      {{#if post.editable}}
-        {{> remove-post id=post.id}}
-        {{> edit-post id=post.id}}
+      {{#if survey.editable}}
+        {{> survey-delete-button id=survey.id}}
+        {{> survey-update-button id=survey.id}}
       {{/if}}
   </div>
 {{/each}}

@@ -1,7 +1,7 @@
 'use strict'
 
 const store = require('./../store')
-const events = require('./../posts/events.js')
+const events = require('./../surveys/events.js')
 
 const onSignUpSuccess = function (response) {
   $('#message').text(`${response.user.email} successfully signed up!`)
@@ -27,8 +27,8 @@ const onSignInSuccess = function (response) {
   $('#sign-up').hide()
   $('#change-password').show()
   $('#sign-out').show()
-  $('#create-post-button').show()
-  $('#index-my-posts-button').show()
+  $('#create-survey-button').show()
+  $('#index-my-surveys-button').show()
   store.user = response.user
 }
 
@@ -56,11 +56,11 @@ const onSignOutSuccess = function (response) {
   $('#sign-out').hide()
   $('#sign-in').show()
   $('#sign-up').show()
-  $('#index-all-posts-button').hide()
-  $('#index-my-posts-button').hide()
-  $('#create-post-button').hide()
+  $('#index-all-surveys-button').hide()
+  $('#index-my-surveys-button').hide()
+  $('#create-survey-button').hide()
   store.signingOut = true
-  events.onIndexAllPosts()
+  events.onIndexAllSurveys()
   // set the locally stored user data to null
   store.user = null
 }

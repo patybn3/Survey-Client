@@ -1,58 +1,58 @@
 'use strict'
 
 const store = require('./../store')
-const indexPostsTemplate = require('../templates/post-listing.handlebars')
-const updatePostForm = require('../templates/post-form-update.handlebars')
+const indexSurveysTemplate = require('../templates/survey-index-listing.handlebars')
+const updateSurveyForm = require('../templates/survey-update-form.handlebars')
 
-const onIndexAllPostsSuccess = function (response) {
-  // flow for indexing posts after one was created
+const onIndexAllSurveysSuccess = function (response) {
+  // flow for indexing surveys after one was created
   console.log('store', store)
-  if (store.creatingPost === true) {
-    $('#post-form').empty()
-    $('#create-post-button').show()
-    $('#message').text(`Post successfully created!`)
-    store.creatingPost = null
-    // flow for indexing posts after one was edited
-  } else if (store.editingPost === true) {
-    $('#post-form').empty()
-    $('#create-post-button').show()
-    $('#message').text(`Post successfully edited!`)
-    store.editingPost = null
-    // flow if indexing posts after user signs out
+  if (store.creatingSurvey === true) {
+    $('#survey-form').empty()
+    $('#create-survey-button').show()
+    $('#message').text(`Survey successfully created!`)
+    store.creatingSurvey = null
+    // flow for indexing surveys after one was edited
+  } else if (store.editingSurvey === true) {
+    $('#survey-form').empty()
+    $('#create-survey-button').show()
+    $('#message').text(`Survey successfully edited!`)
+    store.editingSurvey = null
+    // flow if indexing surveys after user signs out
   } else if (store.signingOut === true) {
     $('#message').text(`Successfully signed out!`)
     store.signingOut = null
   } else {
-    $('#message').text(`Viewing all user posts!`)
+    $('#message').text(`Viewing all user surveys!`)
   }
   // flow for the logged-out view
   if (store.user !== null && store.user !== undefined) {
-    $('#index-all-posts-button').hide()
-    $('#index-my-posts-button').show()
+    $('#index-all-surveys-button').hide()
+    $('#index-my-surveys-button').show()
   }
   // add html to app
-  const indexPostsHtml = indexPostsTemplate({ posts: response.posts })
-  $('#post-content').html(indexPostsHtml)
+  const indexSurveysHtml = indexSurveysTemplate({ surveys: response.surveys })
+  $('#survey-content').html(indexSurveysHtml)
   resetAllForms()
 }
 
-// index only the user's posts
-const onIndexMyPostsSuccess = function (response) {
-  $('#post-content').empty()
-  $('#message').text(`Viewing your posts!`)
-  const indexPostsHtml = indexPostsTemplate({ posts: response.posts })
-  $('#post-content').html(indexPostsHtml)
-  $('#index-all-posts-button').show()
-  $('#index-my-posts-button').hide()
+// index only the user's surveys
+const onIndexMySurveysSuccess = function (response) {
+  $('#survey-content').empty()
+  $('#message').text(`Viewing your surveys!`)
+  const indexSurveysHtml = indexSurveysTemplate({ surveys: response.surveys })
+  $('#survey-content').html(indexSurveysHtml)
+  $('#index-all-surveys-button').show()
+  $('#index-my-surveys-button').hide()
   resetAllForms()
 }
 
-// show a single post
-const onShowPostSuccess = function (response) {
-  $('#message').text(`Edit your post!`)
-  const postFormHtml = updatePostForm({ post: response.post })
-  $('#post-content').html(postFormHtml)
-  store.post = response
+// show a single survey
+const onShowSurveySuccess = function (response) {
+  $('#message').text(`Edit your survey!`)
+  const surveyFormHtml = updateSurveyForm({ survey: response.survey })
+  $('#survey-content').html(surveyFormHtml)
+  store.survey = response
   resetAllForms()
 }
 
@@ -70,9 +70,9 @@ const resetAllForms = function () {
 }
 
 module.exports = {
-  onIndexAllPostsSuccess,
-  onIndexMyPostsSuccess,
-  onShowPostSuccess,
+  onIndexAllSurveysSuccess,
+  onIndexMySurveysSuccess,
+  onShowSurveySuccess,
   resetAllForms,
   failure
 }

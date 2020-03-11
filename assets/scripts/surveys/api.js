@@ -6,9 +6,9 @@ const store = require('./../store')
 
 // contains all AJAX calls to the API
 
-const createPost = (data) => {
+const createSurvey = (data) => {
   return $.ajax({
-    url: `${config.apiUrl}/posts`,
+    url: `${config.apiUrl}/surveys`,
     method: 'POST',
     headers: {
       Authorization: `Token token=${store.user.token}`
@@ -17,28 +17,28 @@ const createPost = (data) => {
   })
 }
 
-const editPost = (post, id) => {
+const editSurvey = (survey, id) => {
   return $.ajax({
-    url: `${config.apiUrl}/posts/${id}`,
+    url: `${config.apiUrl}/surveys/${id}`,
     method: 'PATCH',
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
-    data: post
+    data: survey
   })
 }
 
-const indexAllPosts = () => {
+const indexAllSurveys = () => {
   return $.ajax({
-    url: `${config.apiUrl}/posts`,
+    url: `${config.apiUrl}/surveys`,
     method: 'GET',
     data: ''
   })
 }
 
-const indexMyPosts = () => {
+const indexMySurveys = () => {
   return $.ajax({
-    url: `${config.apiUrl}/posts?user_posts=true`,
+    url: `${config.apiUrl}/surveys?user_surveys=true`,
     method: 'GET',
     headers: {
       Authorization: `Token token=${store.user.token}`
@@ -47,9 +47,9 @@ const indexMyPosts = () => {
   })
 }
 
-const showPost = function (id) {
+const showSurvey = function (id) {
   return $.ajax({
-    url: `${config.apiUrl}/posts/${id}`,
+    url: `${config.apiUrl}/surveys/${id}`,
     method: 'GET',
     headers: {
       Authorization: `Token token=${store.user.token}`
@@ -57,10 +57,10 @@ const showPost = function (id) {
   })
 }
 
-const deletePost = function (event) {
+const deleteSurvey = function (event) {
   const id = $(event.target).data('id')
   return $.ajax({
-    url: `${config.apiUrl}/posts/${id}`,
+    url: `${config.apiUrl}/surveys/${id}`,
     method: 'DELETE',
     headers: {
       Authorization: `Token token=${store.user.token}`
@@ -69,10 +69,10 @@ const deletePost = function (event) {
 }
 
 module.exports = {
-  createPost,
-  editPost,
-  indexAllPosts,
-  indexMyPosts,
-  showPost,
-  deletePost
+  createSurvey,
+  editSurvey,
+  indexAllSurveys,
+  indexMySurveys,
+  showSurvey,
+  deleteSurvey
 }

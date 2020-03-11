@@ -1,15 +1,15 @@
 <form class="update-form form-group">
   <fieldset>
-    <legend>Edit your post :)</legend>
-    <label>Title:</label>
-    <input name='title' type='text' class="form-control" placeholder="title" value="{{post.title}}" required>
+    <legend>Update A Survey</legend>
+    <label>Name:</label>
+    <input name='name' class="form-control" type='text' placeholder="name" value="{{survey.name}}" required>
     <br>
-    <label>Author:</label>
-    <input name='author' type='text' class="form-control" placeholder="name/alias/historical figure" value="{{post.author}}">
+    <label>Description:</label>
+    <input name='description' class="form-control" type='text' placeholder="description" value="{{survey.description}}">
     <br>
-    <label>Body:</label>
-    <textarea name='body' class="form-control" placeholder="here goes nothing!" rows="5" required>{{post.body}}</textarea>
+    <label>Options:</label>
+    <textarea name='options' class="form-control" placeholder="here goes nothing!" rows="5" value="{{survey.options}}" required></textarea>
     <br>
-    <input type='submit' class="form-control" value='Submit Post'>
+    <input type='submit' class="form-control" value='Submit Survey'>
   </fieldset>
 </form>

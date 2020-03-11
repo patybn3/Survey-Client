@@ -1,1 +1,80 @@
 @import '~bootstrap/scss/bootstrap';
+
+// @font-face {
+//   font-family: 'Averia Serif Libre';
+//   src: url('public/Averia_Serif_Libre/AveriaSerifLibre-BoldItalic.ttf') format('truetype');
+// }
+//
+// @font-face {
+//   font-family: 'Macondo Swash Caps';
+//   src: url('public/Macondo_Swash_Caps/MacondoSwashCaps-Regular.ttf') format('truetype');
+// }
+
+html,
+body {
+  height: 100%;
+}
+
+.btn-dark {
+  button-color: white;
+  button-background-color: #383838;
+}
+
+.page-content {
+  flex: 1 0 auto;
+}
+
+main {
+  flex-direction: row-reverse;
+  // font-family: 'Averia Serif Libre';
+}
+
+h1 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/chomolungma.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  font-size: 70px;
+  color: white;
+  // font-family: 'Macondo Swash Caps';
+  padding: 120px 120px 180px 40px;
+  text-shadow: 3px 3px #a32b0b;
+}
+
+.box {
+  background-color: grey;
+  border-radius: 25px;
+  padding-left: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #3d3d3d;
+  background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
+}
+
+.title {
+  text-shadow: 2px 2px #a32b0b;
+  color: white;
+}
+
+.user-actions,
+.form-group {
+  text-shadow: 2px 2px #a32b0b;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  color: white;
+  background-color: #3d3d3d;
+  background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
+}
+
+.sticky-footer {
+  flex-shrink: none;
+  // font-family: 'Averia Serif Libre';
+}
+
+body {
+  background: #thistle;
+  background-color: #005270;
+  background-image: url("https://www.transparenttextures.com/patterns/buried.png");
+}
