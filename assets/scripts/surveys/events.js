@@ -65,18 +65,17 @@ const onCreateSurvey = (event) => {
   const data = getFormFields(event.target)
   const survey = {
     'survey': {
-      'title': data.title,
-      'author': data.author,
-      'body': data.body
+      'name': data.survey.name,
+      'description': data.survey.description
     }
   }
   // anonymous function allows two lines to be written
   // and callback not to be invoked till response comes back
   // to .then()
   api.createSurvey(survey)
-    .then(function () {
-      onIndexAllSurveys(event)
-    })
+    // .then(function () {
+    //   onIndexAllSurveys(event)
+    // })
     .catch(ui.failure)
 }
 

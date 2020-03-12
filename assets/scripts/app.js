@@ -6,6 +6,8 @@ const authEvents = require('./auth/events')
 
 // run the app!
 $(() => {
+// hides and shows
+
   surveyEvents.displayLoggedOutHome()
   surveyEvents.eventHandlers()
   authEvents.eventHandlers()
