@@ -5,12 +5,11 @@
     <input name='survey[name]' class="form-control" type='text' placeholder="name" required>
     <br>
     <label>Question:</label>
-    <input name='survey[description]' class="form-control" type='text' placeholder="description">
+    <input name='survey[description]' class="form-control" type='text' placeholder="description" required>
     <br>
     <label>Answer Options:</label>
-    <input name='options[option]' class="form-control" type='text' placeholder="Option">
-    <br>
-    <input name='options[option]' class="form-control" type='text' placeholder="Next Option">
+    <input name='options[option]' class="form-control" type='text' placeholder="Option" required>
+    <input name='options[option]' class="form-control last-field" type='text' placeholder="Next Option" required>
     <br>
     <button class="button-add form-control">Add Another Option</button>
     <input type='submit' class="form-control" value='Submit Survey'>
