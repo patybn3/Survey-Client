@@ -36,6 +36,7 @@ const eventHandlers = () => {
   })
   $('#survey-content').on('submit', '.update-form', function (event) {
     event.preventDefault()
+    console.log('hello')
     onEditSurveySubmit(event)
   })
 }
@@ -74,7 +75,10 @@ const onEditSurveyStart = (event) => {
   store.creatingSurvey = false
   const id = $(event.target).data('id')
   api.showSurvey(id)
-    .then(ui.onShowSurveySuccess)
+    .then(data => {
+      console.log(data, 'Here')
+      ui.onShowSurveySuccess(data)
+    })
     .catch(ui.failure)
 }
 
@@ -83,11 +87,11 @@ const onEditSurveySubmit = (event) => {
   const data = getFormFields(event.target)
   const id = store.survey.survey.id
   const survey = {
-    'survey': {
-      'title': data.title,
-      'author': data.author,
-      'body': data.body
-    }
+    survey: {
+      name: data.name,
+      description: data.description
+    },
+    options: data.options
   }
   // anonymous function allows two lines to be written
   // and callback not to be invoked till response comes back

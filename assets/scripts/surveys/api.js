@@ -20,6 +20,8 @@ const createSurvey = (data) => {
 }
 
 const editSurvey = (survey, id) => {
+  console.log('survey')
+  console.log(survey)
   return $.ajax({
     url: `${config.apiUrl}/surveys/${id}`,
     method: 'PATCH',

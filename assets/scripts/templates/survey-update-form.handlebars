@@ -7,8 +7,11 @@
     <label>Description:</label>
     <input name='description' class="form-control" type='text' placeholder="description" value="{{survey.description}}">
     <br>
-    <label>Options:</label>
-    <textarea name='options' class="form-control" placeholder="here goes nothing!" rows="5" value="{{survey.options}}" required></textarea>
+    <label>Answer Options:</label>
+    {{#each survey.options as |optionObject|}}
+    {{log optionObject}}
+    <input name='options[0]' class="form-control" type='text' placeholder="Option" value="{{optionObject.option}}">
+    {{/each}}
     <br>
     <input type='submit' class="form-control" value='Submit Survey'>
   </fieldset>
