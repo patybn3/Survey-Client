@@ -4,6 +4,7 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('./../../../lib/get-form-fields')
 const surveyFormCreate = require('../templates/survey-create-form.handlebars')
+const surveyFormAddField = require('../templates/extra-field.handlebars')
 const store = require('./../store')
 
 // initial page display
@@ -24,22 +25,22 @@ const eventHandlers = () => {
   $('#index-my-surveys-button').on('click', onIndexMySurveys)
   $('#survey-content').on('click', '.remove-survey', onDeleteSurvey)
   $('#survey-content').on('click', '.edit-survey', onEditSurveyStart)
+  $('#survey-content').on('click', '.button-add', onAddField)
 
   // the 2nd parameter to these handlers is the optional
   // selector that doesn't exist yet, but will exist
   // with #survey-content once handlebars creates them.
   // because they are forms, use an anonymous function to
   // preventDefault before sending them on.
-  $('#survey-content').on('submit', '.create-form', function (event) {
+  $('#survey-content').on('submit', '.create-form', function(event) {
     event.preventDefault()
     onCreateOrEditSurvey(event)
   })
-  $('#survey-content').on('submit', '.update-form', function (event) {
+  $('#survey-content').on('submit', '.update-form', function(event) {
     event.preventDefault()
     onEditSurveySubmit(event)
   })
 }
-
 // event handler listens for when 'create survey' button is clicked
 const showFormForCreate = () => {
   store.creatingSurvey = true
@@ -47,6 +48,16 @@ const showFormForCreate = () => {
   $('#survey-content').empty()
   const surveyFormHtml = surveyFormCreate()
   $('#survey-content').html(surveyFormHtml)
+}
+
+const onAddField = () => {
+  const surveyFormHtmlAdd = surveyFormAddField()
+  $('#survey-content').append(surveyFormHtmlAdd)
+  // const surveyFormHtmlAdd = surveyFormAddField()
+  // $('#survey-content').append(surveyFormHtmlAdd)
+  $('.add-field').insertAfter('.last-field')
+  // //
+  ui.addFieldButtonSuccess()
 }
 
 // a similar form is used for creating and editing
@@ -62,21 +73,11 @@ const onCreateOrEditSurvey = (event) => {
 // event handler listens for when 'create survey'
 // form submit is clicked
 const onCreateSurvey = (event) => {
+  event.preventDefault()
   const data = getFormFields(event.target)
-  const survey = {
-    'survey': {
-      'title': data.title,
-      'author': data.author,
-      'body': data.body
-    }
-  }
-  // anonymous function allows two lines to be written
-  // and callback not to be invoked till response comes back
-  // to .then()
-  api.createSurvey(survey)
-    .then(function () {
-      onIndexAllSurveys(event)
-    })
+
+  api.createSurvey(data)
+    .then(ui.onCreateSuccess)
     .catch(ui.failure)
 }
 
@@ -104,7 +105,7 @@ const onEditSurveySubmit = (event) => {
   // and callback not to be invoked till response comes back
   // to .then()
   api.editSurvey(survey, id)
-    .then(function () {
+    .then(function() {
       store.editingSurvey = true
       onIndexAllSurveys(event)
     })
@@ -129,7 +130,7 @@ const onIndexMySurveys = () => {
 const onDeleteSurvey = (event) => {
   event.preventDefault()
   api.deleteSurvey(event)
-    .then(function () {
+    .then(function() {
       onIndexAllSurveys(event)
     })
     .catch(ui.failure)

@@ -69,10 +69,15 @@ const resetAllForms = function () {
   $('#sign-out').trigger('reset')
 }
 
+const addFieldButtonSuccess = function () {
+  $('.button-add').trigger('reset')
+}
+
 module.exports = {
   onIndexAllSurveysSuccess,
   onIndexMySurveysSuccess,
   onShowSurveySuccess,
   resetAllForms,
+  addFieldButtonSuccess,
   failure
 }

@@ -7,6 +7,8 @@ const store = require('./../store')
 // contains all AJAX calls to the API
 
 const createSurvey = (data) => {
+  // console.log(data, 'hi')
+  // console.log(store.user.token, 'hello')
   return $.ajax({
     url: `${config.apiUrl}/surveys`,
     method: 'POST',

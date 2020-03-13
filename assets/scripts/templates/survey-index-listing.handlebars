@@ -5,13 +5,15 @@
     </h2>
     <h4 class='description'>
       {{#if survey.description}}
-        by {{survey.description}}
-      {{else}}
-        by Anonymous
+      {{survey.description}}
       {{/if}}
     </h4>
     <p class='options'>
+      {{#if survey.options}}
       {{survey.options}}
+      {{else}}
+        No more options provided
+      {{/if}}
     </p>
       {{#if survey.editable}}
         {{> survey-delete-button id=survey.id}}
