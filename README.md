@@ -36,17 +36,16 @@ then do the pull request as a group.  Then, everybody rebases and
 resolves any conflicts, also as a group.  Rebase will merge any changes.
 
 [ ] Survey UI CRUD for resource with options
-    [ ] CREATE (Wno?)
+    [ ] CREATE (Patty)
         [ ] Suggestion: Do a reset so can create a new item
-    [ ] INDEX (use for each options, did it with Mike, lost code) (Ash/Ethan)
-    [ ] GET (Ash/Ethan)
-    [ ] SHOW/UPDATE  (Patty?)
+    [ ] INDEX - List all surveys, my surveys
+    [ ] SHOW/UPDATE of options  (Ash/Ethan)
     [ ] DELETE (TK)
 [ ] Take Survey (Ash/Ethan)
     [ ] API
     [ ] UI
-[ ] UI - Handle errors
-[ ] UI - Only appropriate buttons appear
+[ ] UI - Handle errors - Patty
+[ ] UI - Only appropriate buttons appear - Ash/Ethan
 [ ] Review checklist
 
 Post MVP
