@@ -116,8 +116,9 @@ const onIndexMySurveys = () => {
 
 // delete a user's survey
 const onDeleteSurvey = (event) => {
+  const id = $(event.target).data('id')
   event.preventDefault()
-  api.deleteSurvey(event)
+  api.deleteSurvey(id)
     .then(function () {
       onIndexAllSurveys(event)
     })

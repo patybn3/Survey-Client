@@ -59,8 +59,7 @@ const showSurvey = function (id) {
   })
 }
 
-const deleteSurvey = function (event) {
-  const id = $(event.target).data('id')
+const deleteSurvey = function (id) {
   return $.ajax({
     url: `${config.apiUrl}/surveys/${id}`,
     method: 'DELETE',

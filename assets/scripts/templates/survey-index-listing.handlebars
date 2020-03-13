@@ -1,5 +1,5 @@
 {{#each surveys as |survey|}}
-  <div data-id="{{survey.id}}" class="box">
+  <div data-id="{{survey._id}}" class="box">
     <h2 class='name'>
       {{survey.name}}
     </h2>
@@ -14,10 +14,9 @@
       {{else}}
         No more options provided
       {{/if}}
+        {{> survey-delete-button }}
+        {{> survey-update-button }}
     </p>
-      {{#if survey.editable}}
-        {{> survey-delete-button id=survey.id}}
-        {{> survey-update-button id=survey.id}}
-      {{/if}}
+
   </div>
 {{/each}}
