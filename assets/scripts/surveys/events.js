@@ -39,6 +39,7 @@ const eventHandlers = () => {
     onEditSurveySubmit(event)
   })
 }
+
 // event handler listens for when 'create survey' button is clicked
 const showFormForCreate = () => {
   store.creatingSurvey = true
@@ -65,7 +66,9 @@ const onCreateSurvey = (event) => {
   const data = getFormFields(event.target)
   console.log('create data options array', data.options)
   api.createSurvey(data)
-    .then(ui.onCreateSuccess)
+    .then(function () {
+      onIndexAllSurveys(event)
+    })
     .catch(ui.failure)
 }
 
@@ -74,8 +77,7 @@ const onEditSurveyStart = (event) => {
   store.creatingSurvey = false
   const id = $(event.target).data('id')
   api.showSurvey(id)
-    .then(ui.onShowSurveySuccess
-    )
+    .then(ui.onShowSurveySuccess)
     .catch(ui.failure)
 }
 

@@ -1,4 +1,5 @@
 <form class="update-form form-group">
+  {{ log survey }}
   <fieldset>
     <legend>Update A Survey</legend>
     <label>Survey Name:</label>
@@ -8,9 +9,11 @@
     <input name='survey[description]' class="form-control" type='text' placeholder="description" value="{{survey.description}}">
     <br>
     <label>Answer Options:</label>
-    {{#each survey.options as |optionObject|}}
-      <input name='options[0]' class="form-control" type='text' placeholder="Option" value="{{optionObject.option}}">
-    {{/each}}
+    <input name='options[0]' class="form-control" type='text' placeholder="Option 1" value="{{'test'}}" required>
+    <input name='options[1]' class="form-control" type='text' placeholder="Option 2" value="{{'test'}}" required>
+    <input name='options[2]' class="form-control" type='text' placeholder="Option 3" value="{{'test'}}" required>
+    <input name='options[3]' class="form-control" type='text' placeholder="Option 4" value="{{'test'}}" required>
+    <input name='options[4]' class="form-control" type='text' placeholder="Option 5" value="{{'test'}}" required>
     <br>
     <input type='submit' class="form-control" value='Submit Survey'>
   </fieldset>
