@@ -64,7 +64,6 @@ const onCreateOrEditSurvey = (event) => {
 const onCreateSurvey = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log('create data', data)
   api.createSurvey(data)
     .then(function () {
       onIndexAllSurveys(event)
@@ -84,9 +83,7 @@ const onEditSurveyStart = (event) => {
 // when a user submits an edited survey
 const onEditSurveySubmit = (event) => {
   const data = getFormFields(event.target)
-  console.log('store', store)
   const id = store.survey.survey._id
-  console.log('data', data)
   const survey = {
     survey: {
       name: data.survey.name,
@@ -97,8 +94,6 @@ const onEditSurveySubmit = (event) => {
   // anonymous function allows two lines to be written
   // and callback not to be invoked till response comes back
   // to .then()
-  console.log(':::survey::::', survey)
-  console.log(':::id::::', id)
   api.editSurvey(survey, id)
     .then(function () {
       store.editingSurvey = true

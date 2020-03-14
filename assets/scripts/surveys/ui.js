@@ -49,7 +49,6 @@ const onIndexMySurveysSuccess = function (response) {
 // show a single survey
 const onShowSurveySuccess = function (response) {
   $('#message').text(`Edit your survey!`)
-  console.log('onShowSurveySuccess response', response)
   const surveyFormHtml = updateSurveyForm({ survey: response.survey })
   $('#survey-content').html(surveyFormHtml)
   store.survey = response
