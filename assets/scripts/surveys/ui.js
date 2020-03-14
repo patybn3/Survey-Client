@@ -1,7 +1,8 @@
 'use strict'
 
 const store = require('./../store')
-const indexSurveysTemplate = require('../templates/survey-index-listing.handlebars')
+const indexAllSurveysTemplate = require('../templates/survey-index-all-surveys.handlebars')
+const indexMySurveysTemplate = require('../templates/survey-index-all-surveys.handlebars')
 const updateSurveyForm = require('../templates/survey-update-form.handlebars')
 
 const onIndexAllSurveysSuccess = function (response) {
@@ -30,7 +31,7 @@ const onIndexAllSurveysSuccess = function (response) {
     $('#index-my-surveys-button').show()
   }
   // add html to app
-  const indexSurveysHtml = indexSurveysTemplate({ surveys: response.surveys })
+  const indexSurveysHtml = indexAllSurveysTemplate({ surveys: response.surveys })
   $('#survey-content').html(indexSurveysHtml)
   resetAllForms()
 }
@@ -39,7 +40,7 @@ const onIndexAllSurveysSuccess = function (response) {
 const onIndexMySurveysSuccess = function (response) {
   $('#survey-content').empty()
   $('#message').text(`Viewing your surveys!`)
-  const indexSurveysHtml = indexSurveysTemplate({ surveys: response.surveys })
+  const indexSurveysHtml = indexMySurveysTemplate({ surveys: response.surveys })
   $('#survey-content').html(indexSurveysHtml)
   $('#index-all-surveys-button').show()
   $('#index-my-surveys-button').hide()
