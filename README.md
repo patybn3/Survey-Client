@@ -15,17 +15,110 @@
 # Dependencies
 - [browser-template](https://git.generalassemb.ly/ga-wdi-boston/browser-template)
 
-# High Level Plan
-- One person:
-  - Download api template and push
-  - Deploy to heroku
-  - Download UI template and push
-  - Deploy to heroku
-- API Sign up, sign in
-- UI Sign up, sign in
-- Each team member
-  - Clones repos
-- Survey API CRUD for resource with no options
-- Survey UI CRUD for resource with no options
-- Options API (POST action: update)
-- Options UI
+# Release Plan
+## MVP
+
+One person:
+  [X] Download api template and push
+  [X] Deploy to heroku
+  [X] Download UI template and push
+  [X] Deploy to heroku
+[X] API Sign up, sign in
+[X] UI Sign up, sign in
+Each team member
+  [X] Clones repos
+[X] Survey API CRUD for resource with no options
+[X] Survey UI CRUD for resource with no options
+[X] Survey API CRUD for resource with options
+
+Work in three groups on UI.  When someone is ready to push to feature,
+then do the pull request as a group.  Then, everybody rebases and
+resolves any conflicts, also as a group.  Rebase will merge any changes.
+
+[ ] Survey UI CRUD for resource with options
+    [ ] CREATE (Patty)
+        [ ] Suggestion: Do a reset so can create a new item
+    [ ] INDEX - List all surveys, my surveys
+    [ ] SHOW/UPDATE of options  (Ash/Ethan)
+    [ ] DELETE (TK)
+[ ] Take Survey (Ash/Ethan)
+    [ ] API
+    [ ] UI
+[ ] UI - Handle errors - Patty
+[ ] UI - Only appropriate buttons appear - Ash/Ethan
+[ ] Review checklist
+
+Post MVP
+[ ] Celebrate
+[ ] Prep for demo
+[ ] Tech debt
+
+## Sprints
+### Sprint 1
+**Target**
+[ ] CRUD for Survey without optons and without auth
+    [ ] API
+    [ ] UI
+
+**Review**
+Targeted and completed
+[ ] CRUD for Survey without optons and **with auth**
+    [X] API
+
+Bonus completed
+[X] Sign up, sign in
+    [X] API (part of template)
+    [X] UI
+[X] Included auth
+
+Targeted and not completed:
+[ ] CRUD for Survey without optons and **with auth**
+    [] UI
+
+Retro
+???
+
+### Sprint 2
+**Target**
+[ ] CRUD for options
+    [X] API
+    [ ] UI
+**Stretch**
+[ ] UI: Take Survey
+[ ] API: Take Survey
+
+**Review**
+Targeted and completed:
+[ ] CRUD for options
+    [X] API
+Targeted and not completed:
+[ ] CRUD for options
+    [ ] UI
+
+Demoed
+Worked with Mike to figure out how to show options
+
+**Retro**
+**Ash**
+What worked
+  - We all did an incredible job, got far, close to being done
+How to make it even better:
+  - Pay attention to Slack
+
+**TK**
+What worked
+  - Helped out others
+  - Found bug "GET issue"
+
+**Patty**
+What worked
+  - Tried to work on same problem, worked separately, ended up finding
+one that wOrked on one that was cleaner
+  - Checked front end together
+
+**Ethan**
+What worked
+  - Good combo of working separately and together
+How to make it even better
+  - Continue working on UI components separately
+  - Ethan listen to TK.  He found the issue, but Ethan was thinking of his solution.
