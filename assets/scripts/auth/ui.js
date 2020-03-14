@@ -29,6 +29,7 @@ const onSignInSuccess = function (response) {
   $('#sign-out').show()
   $('#create-survey-button').show()
   $('#index-my-surveys-button').show()
+  events.onIndexAllSurveys()
   store.user = response.user
 }
 
@@ -60,7 +61,7 @@ const onSignOutSuccess = function (response) {
   $('#index-my-surveys-button').hide()
   $('#create-survey-button').hide()
   store.signingOut = true
-  events.onIndexAllSurveys()
+  $('#survey-content').empty()
   // set the locally stored user data to null
   store.user = null
 }
