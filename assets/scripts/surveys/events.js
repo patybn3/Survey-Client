@@ -60,9 +60,13 @@ const onVote = (event) => {
 const showFormForCreate = () => {
   store.creatingSurvey = true
   $('#create-survey-button').hide()
+  $('#index-my-surveys-button').show()
+  $('#index-all-surveys-button').show()
   $('#survey-content').empty()
   const surveyFormHtml = surveyFormCreate()
   $('#survey-content').html(surveyFormHtml)
+  $('#message').text(`Create your new survey!`)
+  ui.resetAllForms()
 }
 
 // a similar form is used for creating and editing
@@ -128,6 +132,7 @@ const onEditSurveySubmit = (event) => {
 
 // get list of all surveys
 const onIndexAllSurveys = () => {
+  $('#create-survey-button').show()
   api.indexAllSurveys()
     .then(ui.onIndexAllSurveysSuccess)
     .catch(ui.failure)
@@ -135,6 +140,7 @@ const onIndexAllSurveys = () => {
 
 // get list of just one user's surveys
 const onIndexMySurveys = () => {
+  $('#create-survey-button').show()
   api.indexMySurveys()
     .then(ui.onIndexMySurveysSuccess)
     .catch(ui.failure)
