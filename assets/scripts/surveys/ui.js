@@ -8,6 +8,8 @@ const updateSurveyForm = require('../templates/survey-update-form.handlebars')
 const viewTakeSurvey = require('../templates/survey-view-and-take.handlebars')
 
 const onIndexAllSurveysSuccess = function (response) {
+  store.surveys = response.surveys
+  console.log('onIndexAllSurveysSuccess store', store)
   // flow for indexing surveys after one was created
   if (store.creatingSurvey === true) {
     $('#survey-form').empty()
@@ -28,7 +30,11 @@ const onIndexAllSurveysSuccess = function (response) {
     $('#message').text(`Successfully deleted survey! Viewing all user surveys!`)
     store.deletingSurvey = null
   } else {
-    $('#message').text(`Viewing all user surveys!`)
+    if (store.surveys.length === 0) {
+      $('#message').text(`No surveys yet! Create one to start!`)
+    } else {
+      $('#message').text(`Viewing all user surveys!`)
+    }
   }
   // flow for the logged-out view
   if (store.user !== null && store.user !== undefined) {
@@ -43,8 +49,14 @@ const onIndexAllSurveysSuccess = function (response) {
 
 // index only the user's surveys
 const onIndexMySurveysSuccess = function (response) {
+  store.surveys = response.surveys
+  console.log('onIndexMySurveysSuccess store', store)
   $('#survey-content').empty()
-  $('#message').text(`Viewing your surveys!`)
+  if (store.surveys.length === 0) {
+    $('#message').text(`No surveys yet! Create one to start!`)
+  } else {
+    $('#message').text(`Viewing your surveys!`)
+  }
   const indexSurveysHtml = indexMySurveysTemplate({ surveys: response.surveys })
   $('#survey-content').html(indexSurveysHtml)
   $('#index-all-surveys-button').show()
@@ -71,6 +83,7 @@ const onViewTakeSurveySuccess = function (response) {
 }
 
 const onVoteSuccess = function (response) {
+  resetAllForms()
   api.showSurvey(store.survey.survey._id)
     .then(onViewTakeSurveySuccess)
     .catch(failure)
@@ -87,6 +100,9 @@ const resetAllForms = function () {
   $('#sign-in').trigger('reset')
   $('#change-password').trigger('reset')
   $('#sign-out').trigger('reset')
+  store.creatingSurvey = null
+  store.editingSurvey = null
+  store.deletingSurvey = null
 }
 
 module.exports = {

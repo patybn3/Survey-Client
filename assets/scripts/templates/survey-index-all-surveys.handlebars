@@ -8,13 +8,10 @@
       {{survey.description}}
       {{/if}}
     </h4>
-    <p class='options'>
-      {{#if survey.options}}
-      {{survey.options}}
-      {{else}}
-        No more options provided
-      {{/if}}
+    <p>Options: {{survey.options.[0].option}}, {{survey.options.[1].option}}
+      {{survey.options.[2].option}}, {{survey.options.[1].option}},
+      {{survey.options.[4].option}}
     </p>
-
+    <button class='btn btn-sm btn-dark view-take-survey-button' data-id="{{_id}}">View/Take</button>
   </div>
 {{/each}}
