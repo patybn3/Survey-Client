@@ -28,14 +28,14 @@ const editSurvey = (survey, id) => {
   })
 }
 
-const vote = (voteId, surveyId) => {
+const vote = (surveyId, vote) => {
   return $.ajax({
     url: `${config.apiUrl}/surveys/vote/${surveyId}`,
     method: 'PATCH',
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
-    data: voteId
+    data: vote
   })
 }
 

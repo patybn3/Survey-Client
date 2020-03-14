@@ -48,7 +48,10 @@ const onVote = (event) => {
   const voteId = $(event.target).data('vote-id')
   // console.log('voteId', voteId)
   // console.log('surveyID', store.survey.survey._id)
-  api.vote(store.survey.survey._id, voteId)
+  const vote = {
+    vote: voteId
+  }
+  api.vote(store.survey.survey._id, vote)
     .then(ui.onVoteSuccess)
     .catch(ui.failure)
 }
