@@ -25,6 +25,7 @@ const eventHandlers = () => {
   $('#index-my-surveys-button').on('click', onIndexMySurveys)
   $('#survey-content').on('click', '.remove-survey', onDeleteSurvey)
   $('#survey-content').on('click', '.edit-survey', onEditSurveyStart)
+  $('#survey-content').on('click', '.view-take-survey-button', onViewTakeSurvey)
   // the 2nd parameter to these handlers is the optional
   // selector that doesn't exist yet, but will exist
   // with #survey-content once handlebars creates them.
@@ -38,6 +39,21 @@ const eventHandlers = () => {
     event.preventDefault()
     onEditSurveySubmit(event)
   })
+  $('#survey-content').on('click', '.vote-button', function (event) {
+    onVote(event)
+  })
+}
+
+const onVote = (event) => {
+  const voteId = $(event.target).data('vote-id')
+  // console.log('voteId', voteId)
+  // console.log('surveyID', store.survey.survey._id)
+  const vote = {
+    vote: voteId
+  }
+  api.vote(store.survey.survey._id, vote)
+    .then(ui.onVoteSuccess)
+    .catch(ui.failure)
 }
 
 // event handler listens for when 'create survey' button is clicked
@@ -77,6 +93,14 @@ const onEditSurveyStart = (event) => {
   const id = $(event.target).data('id')
   api.showSurvey(id)
     .then(ui.onShowSurveySuccess)
+    .catch(ui.failure)
+}
+
+// when a user begins to update a survey
+const onViewTakeSurvey = (event) => {
+  const id = $(event.target).data('id')
+  api.showSurvey(id)
+    .then(ui.onViewTakeSurveySuccess)
     .catch(ui.failure)
 }
 
@@ -137,5 +161,7 @@ module.exports = {
   onIndexAllSurveys,
   onDeleteSurvey,
   onEditSurveyStart,
-  onEditSurveySubmit
+  onEditSurveySubmit,
+  onViewTakeSurvey,
+  onVote
 }
