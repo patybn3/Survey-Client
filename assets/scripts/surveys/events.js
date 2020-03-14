@@ -39,6 +39,18 @@ const eventHandlers = () => {
     event.preventDefault()
     onEditSurveySubmit(event)
   })
+  $('#survey-content').on('click', '.vote-button', function (event) {
+    onVote(event)
+  })
+}
+
+const onVote = (event) => {
+  const voteId = $(event.target).data('vote-id')
+  // console.log('voteId', voteId)
+  // console.log('surveyID', store.survey.survey._id)
+  api.vote(store.survey.survey._id, voteId)
+    .then(ui.onVoteSuccess)
+    .catch(ui.failure)
 }
 
 // event handler listens for when 'create survey' button is clicked
@@ -147,5 +159,6 @@ module.exports = {
   onDeleteSurvey,
   onEditSurveyStart,
   onEditSurveySubmit,
-  onViewTakeSurvey
+  onViewTakeSurvey,
+  onVote
 }

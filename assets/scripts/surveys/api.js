@@ -28,6 +28,17 @@ const editSurvey = (survey, id) => {
   })
 }
 
+const vote = (voteId, surveyId) => {
+  return $.ajax({
+    url: `${config.apiUrl}/surveys/vote/${surveyId}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    data: voteId
+  })
+}
+
 const indexAllSurveys = () => {
   return $.ajax({
     url: `${config.apiUrl}/surveys`,
@@ -73,5 +84,6 @@ module.exports = {
   indexAllSurveys,
   indexMySurveys,
   showSurvey,
-  deleteSurvey
+  deleteSurvey,
+  vote
 }
