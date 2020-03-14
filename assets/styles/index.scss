@@ -1,10 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
 
-// @font-face {
-//   font-family: 'Averia Serif Libre';
-//   src: url('public/Averia_Serif_Libre/AveriaSerifLibre-BoldItalic.ttf') format('truetype');
-// }
-//
+@font-face {
+  font-family: 'Niramit', sans-serif;
+  src: url('public/Niramit/Niramit-ExtraLight.ttf') format('truetype');
+}
+
 // @font-face {
 //   font-family: 'Macondo Swash Caps';
 //   src: url('public/Macondo_Swash_Caps/MacondoSwashCaps-Regular.ttf') format('truetype');
@@ -30,14 +30,14 @@ main {
 }
 
 h1 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/aurora_borealis.jpeg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/big-dipper.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   font-size: 70px;
   color: white;
-  // font-family: 'Macondo Swash Caps';
+  font-family: 'Niramit';
   padding: 120px 120px 180px 40px;
   text-shadow: 3px 3px #a32b0b;
 }
@@ -79,6 +79,5 @@ h1 {
 
 body {
   background: #thistle;
-  background-color: #005270;
-  background-image: url("https://www.transparenttextures.com/patterns/buried.png");
+  background-color: black;
 }
