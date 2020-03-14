@@ -2,7 +2,7 @@
 
 const store = require('./../store')
 const indexAllSurveysTemplate = require('../templates/survey-index-all-surveys.handlebars')
-const indexMySurveysTemplate = require('../templates/survey-index-all-surveys.handlebars')
+const indexMySurveysTemplate = require('../templates/survey-index-my-surveys.handlebars')
 const updateSurveyForm = require('../templates/survey-update-form.handlebars')
 
 const onIndexAllSurveysSuccess = function (response) {
@@ -22,6 +22,9 @@ const onIndexAllSurveysSuccess = function (response) {
   } else if (store.signingOut === true) {
     $('#message').text(`Successfully signed out!`)
     store.signingOut = null
+  } else if (store.deletingSurvey === true) {
+    $('#message').text(`Successfully deleted survey! Viewing all user surveys!`)
+    store.deletingSurvey = null
   } else {
     $('#message').text(`Viewing all user surveys!`)
   }
