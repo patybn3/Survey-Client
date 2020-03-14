@@ -4,7 +4,7 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('./../../../lib/get-form-fields')
 const surveyFormCreate = require('../templates/survey-create-form.handlebars')
-const surveyFormAddField = require('../templates/extra-field.handlebars')
+// const surveyFormAddField = require('../templates/extra-field.handlebars')
 const store = require('./../store')
 
 // initial page display
@@ -74,9 +74,8 @@ const onEditSurveyStart = (event) => {
   store.creatingSurvey = false
   const id = $(event.target).data('id')
   api.showSurvey(id)
-    .then(data => {
-      ui.onShowSurveySuccess(data)
-    })
+    .then(ui.onShowSurveySuccess
+    )
     .catch(ui.failure)
 }
 
