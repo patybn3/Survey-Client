@@ -36,7 +36,6 @@ const eventHandlers = () => {
   })
   $('#survey-content').on('submit', '.update-form', function (event) {
     event.preventDefault()
-    console.log('hello')
     onEditSurveySubmit(event)
   })
 }
@@ -76,7 +75,6 @@ const onEditSurveyStart = (event) => {
   const id = $(event.target).data('id')
   api.showSurvey(id)
     .then(data => {
-      console.log(data, 'Here')
       ui.onShowSurveySuccess(data)
     })
     .catch(ui.failure)

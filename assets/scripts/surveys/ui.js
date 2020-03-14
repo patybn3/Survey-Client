@@ -6,7 +6,6 @@ const updateSurveyForm = require('../templates/survey-update-form.handlebars')
 
 const onIndexAllSurveysSuccess = function (response) {
   // flow for indexing surveys after one was created
-  console.log('store', store)
   if (store.creatingSurvey === true) {
     $('#survey-form').empty()
     $('#create-survey-button').show()
