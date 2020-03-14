@@ -1,14 +1,18 @@
 <form class="update-form form-group">
   <fieldset>
     <legend>Update A Survey</legend>
-    <label>Name:</label>
-    <input name='name' class="form-control" type='text' placeholder="name" value="{{survey.name}}" required>
+    <label>Survey Name:</label>
+    <input name='survey[name]' class="form-control" type='text' placeholder="name" value="{{survey.name}}" required>
     <br>
-    <label>Description:</label>
-    <input name='description' class="form-control" type='text' placeholder="description" value="{{survey.description}}">
+    <label>Question:</label>
+    <input name='survey[description]' class="form-control" type='text' placeholder="description" value="{{survey.description}}">
     <br>
-    <label>Options:</label>
-    <textarea name='options' class="form-control" placeholder="here goes nothing!" rows="5" value="{{survey.options}}" required></textarea>
+    <label>Answer Options:</label>
+    <input name='options[0]' class="form-control" type='text' placeholder="Option 1" value="{{survey.options.[0].option}}" required>
+    <input name='options[1]' class="form-control" type='text' placeholder="Option 2" value="{{survey.options.[1].option}}" required>
+    <input name='options[2]' class="form-control" type='text' placeholder="Option 3" value="{{survey.options.[2].option}}" required>
+    <input name='options[3]' class="form-control" type='text' placeholder="Option 4" value="{{survey.options.[3].option}}" required>
+    <input name='options[4]' class="form-control" type='text' placeholder="Option 5" value="{{survey.options.[4].option}}" required>
     <br>
     <input type='submit' class="form-control" value='Submit Survey'>
   </fieldset>

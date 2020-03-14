@@ -6,7 +6,6 @@ const updateSurveyForm = require('../templates/survey-update-form.handlebars')
 
 const onIndexAllSurveysSuccess = function (response) {
   // flow for indexing surveys after one was created
-  console.log('store', store)
   if (store.creatingSurvey === true) {
     $('#survey-form').empty()
     $('#create-survey-button').show()
@@ -69,15 +68,10 @@ const resetAllForms = function () {
   $('#sign-out').trigger('reset')
 }
 
-const addFieldButtonSuccess = function () {
-  $('.button-add').trigger('reset')
-}
-
 module.exports = {
   onIndexAllSurveysSuccess,
   onIndexMySurveysSuccess,
   onShowSurveySuccess,
   resetAllForms,
-  addFieldButtonSuccess,
   failure
 }

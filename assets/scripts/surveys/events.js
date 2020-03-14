@@ -4,7 +4,7 @@ const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('./../../../lib/get-form-fields')
 const surveyFormCreate = require('../templates/survey-create-form.handlebars')
-const surveyFormAddField = require('../templates/extra-field.handlebars')
+// const surveyFormAddField = require('../templates/extra-field.handlebars')
 const store = require('./../store')
 
 // initial page display
@@ -39,6 +39,7 @@ const eventHandlers = () => {
     onEditSurveySubmit(event)
   })
 }
+
 // event handler listens for when 'create survey' button is clicked
 const showFormForCreate = () => {
   store.creatingSurvey = true
@@ -63,9 +64,10 @@ const onCreateOrEditSurvey = (event) => {
 const onCreateSurvey = (event) => {
   event.preventDefault()
   const data = getFormFields(event.target)
-
   api.createSurvey(data)
-    .then(ui.onCreateSuccess)
+    .then(function () {
+      onIndexAllSurveys(event)
+    })
     .catch(ui.failure)
 }
 
@@ -81,13 +83,13 @@ const onEditSurveyStart = (event) => {
 // when a user submits an edited survey
 const onEditSurveySubmit = (event) => {
   const data = getFormFields(event.target)
-  const id = store.survey.survey.id
+  const id = store.survey.survey._id
   const survey = {
-    'survey': {
-      'title': data.title,
-      'author': data.author,
-      'body': data.body
-    }
+    survey: {
+      name: data.survey.name,
+      description: data.survey.description
+    },
+    options: data.options
   }
   // anonymous function allows two lines to be written
   // and callback not to be invoked till response comes back
