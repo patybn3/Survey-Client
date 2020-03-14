@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('./../store')
+const api = require('./api.js')
 const indexAllSurveysTemplate = require('../templates/survey-index-all-surveys.handlebars')
 const indexMySurveysTemplate = require('../templates/survey-index-my-surveys.handlebars')
 const updateSurveyForm = require('../templates/survey-update-form.handlebars')
@@ -69,6 +70,12 @@ const onViewTakeSurveySuccess = function (response) {
   resetAllForms()
 }
 
+const onVoteSuccess = function (response) {
+  api.showSurvey(store.survey.survey._id)
+    .then(onViewTakeSurveySuccess)
+    .catch(failure)
+}
+
 // save errors to storage since console logs aren't allowed in this project
 const failure = function (error) {
   store.error = error
@@ -87,6 +94,7 @@ module.exports = {
   onIndexMySurveysSuccess,
   onShowSurveySuccess,
   onViewTakeSurveySuccess,
+  onVoteSuccess,
   resetAllForms,
   failure
 }
