@@ -1,0 +1,20 @@
+{{#each surveys as |survey|}}
+  <div data-id="{{survey._id}}" class="box">
+    <h2 class='name'>
+      {{survey.name}}
+    </h2>
+    <h4 class='description'>
+      {{#if survey.description}}
+      {{survey.description}}
+      {{/if}}
+    </h4>
+    <p class='options'>
+      {{#if survey.options}}
+      {{survey.options}}
+      {{else}}
+        No more options provided
+      {{/if}}
+    </p>
+
+  </div>
+{{/each}}

@@ -38,7 +38,7 @@ const indexAllSurveys = () => {
 
 const indexMySurveys = () => {
   return $.ajax({
-    url: `${config.apiUrl}/surveys?user_surveys=true`,
+    url: `${config.apiUrl}/surveys/mine`,
     method: 'GET',
     headers: {
       Authorization: `Token token=${store.user.token}`

@@ -122,6 +122,7 @@ const onDeleteSurvey = (event) => {
   event.preventDefault()
   api.deleteSurvey(id)
     .then(function () {
+      store.deletingSurvey = true
       onIndexAllSurveys(event)
     })
     .catch(ui.failure)
