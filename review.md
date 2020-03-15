@@ -12,6 +12,7 @@
 - When there is an error, show the error text, so that user can know the error they made
 - Make words white or some other contrasty color for accessiblity (hard for me to read)
 - Show My Surveys and All Surveys button at all times.  Sometimes, I want to do one, and only the other is available
+- Check how it looks on mobile
 
 **ENHANCEMENTS - LARGE**
 - Multiple questions per survey, each question with options
