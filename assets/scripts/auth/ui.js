@@ -4,23 +4,23 @@ const store = require('./../store')
 const events = require('./../surveys/events.js')
 
 const onSignUpSuccess = function (response) {
-  $('#message').text(`${response.user.email} successfully signed up!`)
+  $('.message').text(`${response.user.email} successfully signed up!`)
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
-  $('#message').removeClass()
-  $('#message').addClass('success-message')
+  $('.message').removeClass()
+  $('.message').addClass('success-message')
 }
 
 const onSignUpFailure = function (response) {
-  $('#message').text(`sign up failed. try again.`)
+  $('.message').text(`sign up failed. try again.`)
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
-  $('#message').removeClass()
-  $('#message').addClass('failure-message')
+  $('.message').removeClass()
+  $('.message').addClass('failure-message')
 }
 
 const onSignInSuccess = function (response) {
-  $('#message').text(`${response.user.email} successfully signed in!`)
+  $('.message').text(`${response.user.email} successfully signed in!`)
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
   $('#sign-in').hide()
@@ -34,23 +34,23 @@ const onSignInSuccess = function (response) {
 }
 
 const onSignInFailure = function (response) {
-  $('#message').text(`sign in failed. try again.`)
+  $('.message').text(`sign in failed. try again.`)
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
 }
 
 const onChangePasswordSuccess = function (response) {
-  $('#message').text(`successfully changed password!`)
+  $('.message').text(`successfully changed password!`)
   $('#change-password').trigger('reset')
 }
 
 const onChangePasswordFailure = function (response) {
-  $('#message').text(`change password failed. try again.`)
+  $('.message').text(`change password failed. try again.`)
   $('#change-password').trigger('reset')
 }
 
 const onSignOutSuccess = function (response) {
-  $('#message').text(`successfully signed out!`)
+  $('.message').text(`successfully signed out!`)
   $('#sign-out').trigger('reset')
   $('#change-password').trigger('reset')
   $('#change-password').hide()
@@ -61,13 +61,13 @@ const onSignOutSuccess = function (response) {
   $('#index-my-surveys-button').hide()
   $('#create-survey-button').hide()
   store.signingOut = true
-  $('#survey-content').empty()
+  $('.survey-content').empty()
   // set the locally stored user data to null
   store.user = null
 }
 
 const onSignOutFailure = function (response) {
-  $('#message').text(`sign out failed. try again.`)
+  $('.message').text(`sign out failed. try again.`)
   $('#sign-out').trigger('reset')
   $('#sign-in').trigger('reset')
 }
