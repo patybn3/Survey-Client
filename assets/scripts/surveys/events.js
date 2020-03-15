@@ -62,7 +62,7 @@ const showFormForCreate = () => {
   $('#survey-content').empty()
   const surveyFormHtml = surveyFormCreate()
   $('#survey-content').html(surveyFormHtml)
-  $('#message').text(`Create your new survey!`)
+  $('.message').text(`Create your new survey!`)
 }
 
 // a similar form is used for creating and editing

@@ -8,6 +8,8 @@ $media-background: #242e3f;
 $color-white: #fff;
 $golden-color: #a88868;
 $user-actions: #43403d;
+$half-opacity: rgba(0, 0, 0, .5);
+
 
 @font-face {
   font-family: 'Niramit';
@@ -22,12 +24,11 @@ $user-actions: #43403d;
 html,
 body {
   background-color: $media-background;
-  background-image: url('https://www.transparenttextures.com/patterns/arches.png');
   height: 100%;
 }
 
 h1 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/johannes-plenio-DKix6Un55mw-unsplash.jpg');
+  background-image: linear-gradient($half-opacity, $half-opacity), url('public/johannes-plenio-DKix6Un55mw-unsplash.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -42,7 +43,7 @@ h1 {
   flex: 1 0 auto;
 }
 
-#message,
+.message,
 .name {
   color: $font-color;
 }
@@ -57,10 +58,10 @@ main {
   border-radius: 4px;
   margin: 10px;
   padding: 10px;
-}
 
-.box .box {
-  background-color: $font-color;
+  .box {
+    background-color: $font-color;
+  }
 }
 
 .intro {
