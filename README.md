@@ -1,10 +1,10 @@
 # Pollaris Surveys Client
 
   Pollaris Surveys is Full Stack Web Application developed as a group project by the following Sofware Engineers:
-  [Ash Grevelink](https://github.com/hashbangash),
-  [Ethan Strominger](https://github.com/etahnstrominger),
-  [Tukrong Klengdong](https://github.com/tukrong),
-  [Patricia Antlitz](https://github.com/patybn3)
+  [Ash Grevelink](github.com/hashbangash),
+  [Ethan Strominger](github.com/ethanstrominger),
+  [Tukrong Klengdong](github.com/tukrong),
+  [Patricia Antlitz](github.com/patybn3).
 
 The Back-End repository of this app is stored at [Pollaris API](https://github.com/wat-the-duck/pollaris-surveys-api).
 And its version was deployd to [Heroku](https://mighty-retreat-69793.herokuapp.com/).
