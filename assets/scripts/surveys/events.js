@@ -145,7 +145,6 @@ const onIndexMySurveys = () => {
     .then(ui.onIndexMySurveysSuccess)
     .catch(ui.failure)
 }
-
 // delete a user's survey
 const onDeleteSurvey = (event) => {
   const id = $(event.target).data('id')
@@ -153,7 +152,7 @@ const onDeleteSurvey = (event) => {
   api.deleteSurvey(id)
     .then(function () {
       store.deletingSurvey = true
-      onIndexAllSurveys(event)
+      ui.onDeleteSucess(event)
     })
     .catch(ui.failure)
 }

@@ -26,9 +26,6 @@ const onIndexAllSurveysSuccess = function (response) {
   } else if (store.signingOut === true) {
     $('#message').text(`Successfully signed out!`)
     store.signingOut = null
-  } else if (store.deletingSurvey === true) {
-    $('#message').text(`Successfully deleted survey! Viewing all user surveys!`)
-    store.deletingSurvey = null
   } else {
     if (store.surveys.length === 0) {
       $('#message').text(`No surveys yet! Create one to start!`)
@@ -42,11 +39,24 @@ const onIndexAllSurveysSuccess = function (response) {
     $('#index-my-surveys-button').show()
   }
   // add html to app
-  const indexSurveysHtml = indexAllSurveysTemplate({ surveys: response.surveys })
+  const indexSurveysHtml = indexAllSurveysTemplate({
+    surveys: response.surveys
+  })
   $('#survey-content').html(indexSurveysHtml)
   resetAllForms()
 }
 
+const onDeleteSucess = function () {
+  if (store.deletingSurvey === true) {
+    $('#message').text(`Successfully deleted survey! Viewing all user surveys!`)
+    api.indexMySurveys()
+      .then((data) => {
+        onIndexMySurveysSuccess(data, 'Deleted')
+      })
+      .catch(failure)
+  }
+  store.deletingSurvey = null
+}
 // index only the user's surveys
 const onIndexMySurveysSuccess = function (response) {
   store.surveys = response.surveys
@@ -57,7 +67,9 @@ const onIndexMySurveysSuccess = function (response) {
   } else {
     $('#message').text(`Viewing your surveys!`)
   }
-  const indexSurveysHtml = indexMySurveysTemplate({ surveys: response.surveys })
+  const indexSurveysHtml = indexMySurveysTemplate({
+    surveys: response.surveys
+  })
   $('#survey-content').html(indexSurveysHtml)
   $('#index-all-surveys-button').show()
   $('#index-my-surveys-button').hide()
@@ -67,7 +79,9 @@ const onIndexMySurveysSuccess = function (response) {
 // show a single survey
 const onShowSurveySuccess = function (response) {
   $('#message').text(`Edit your survey!`)
-  const surveyFormHtml = updateSurveyForm({ survey: response.survey })
+  const surveyFormHtml = updateSurveyForm({
+    survey: response.survey
+  })
   $('#survey-content').html(surveyFormHtml)
   store.survey = response
   resetAllForms()
@@ -76,7 +90,9 @@ const onShowSurveySuccess = function (response) {
 // show a single survey with options to vote!
 const onViewTakeSurveySuccess = function (response) {
   $('#message').text(`View and vote on your survey!`)
-  const surveyHtml = viewTakeSurvey({ survey: response.survey })
+  const surveyHtml = viewTakeSurvey({
+    survey: response.survey
+  })
   $('#survey-content').html(surveyHtml)
   store.survey = response
   resetAllForms()
@@ -112,5 +128,6 @@ module.exports = {
   onViewTakeSurveySuccess,
   onVoteSuccess,
   resetAllForms,
-  failure
+  failure,
+  onDeleteSucess
 }

@@ -1,5 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
 
+// hex to be written in lower case letters
+// repetitive letter to be shortcutted to 3 letters
+$font-color: #628aa4;
+$background: #645548;
+$media-background: #242e3f;
+$color-white: #fff;
+$golden-color: #a88868;
+$user-actions: #43403d;
+
 @font-face {
   font-family: 'Niramit';
   src: url('public/Niramit/Niramit-ExtraLight.ttf') format('truetype');
@@ -12,9 +21,9 @@
 
 html,
 body {
+  background-color: $media-background;
+  background-image: url('https://www.transparenttextures.com/patterns/arches.png');
   height: 100%;
-  background-color: #242e3f;
-  background-image: url("https://www.transparenttextures.com/patterns/arches.png");
 }
 
 h1 {
@@ -22,11 +31,11 @@ h1 {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
-  color: white;
+  color: $color-white;
   font-family: 'Tenali Ramakrishna';
-  padding: 60px 10px 60px 10px;
   font-size: 55px;
+  padding: 60px 10px;
+  position: relative;
 }
 
 .page-content {
@@ -35,7 +44,7 @@ h1 {
 
 #message,
 .name {
-  color: #628aa4;
+  color: $font-color;
 }
 
 main {
@@ -44,27 +53,27 @@ main {
 }
 
 .box {
-  background-color: #645548;
+  background-color: $background;
   border-radius: 4px;
   margin: 10px;
   padding: 10px;
 }
 
 .box .box {
-  background-color: #628aa4;
+  background-color: $font-color;
 }
 
 .intro {
-  color: #628aa4;
+  color: $font-color;
 }
 
 .user-actions {
+  background-color: $user-actions;
   border-radius: 4px;
-  color: #a88868;
-  background-color: #43403d;
+  color: $golden-color;
+  margin-bottom: 25px;
   margin-left: 25px;
   margin-top: 15px;
-  margin-bottom: 25px;
 }
 
 .sticky-footer {
@@ -74,45 +83,59 @@ main {
 
 @media (min-width: 480px) {
   body {
-    background-color: #242e3f;
+    background-color: $media-background;
   }
+
   h1 {
     font-size: 60px;
-    padding: 80px 20px 80px 20px;
+    padding: 80px 20px;
   }
+
   .user-actions {
     margin-left: 0;
   }
 }
+
 @media (min-width: 768px) {
   body {
-    background-color: #242e3f;
+    background-color: $media-background;
   }
+
   h1 {
-    padding: 120px 80px 120px 40px;
     font-size: 90px;
+    padding: 120px 80px 120px 40px;
   }
 }
+
 @media (min-width: 992px) {
   body {
-    background-color: #242e3f;
+    background-color: $media-background;
   }
+
   h1 {
     padding: 150px 80px 150px 30px;
   }
 }
+
 @media (min-width: 1200px) {
   body {
-    background-color: #242e3f;
+    background-color: $media-background;
   }
+
   h1 {
     padding: 180px 80px 180px 40px;
-  }
+}
+
   .box {
-    background-color: #645548;
+    background-color: $background;
     border-radius: 2px;
-    padding-left: 20px;
-    margin-top: 5px;
     margin-bottom: 5px;
+    margin-top: 5px;
+    padding-left: 20px;
   }
+}
+
+.create-form,
+.update-form {
+  color: $font-color;
 }
