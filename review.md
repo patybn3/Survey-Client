@@ -6,6 +6,8 @@
 **Bugs**
 - Need message when no surveys entered for My Surveys (and all Surveys)
 - Need Postman script for Take Survey
+- Allow for less than 5 options
+- Count resets to 0 if you update
 
 **UI**
 - Put sign in / sign out next to each other so don't have to scroll to get to sign in
@@ -21,6 +23,7 @@
 - Add tags to survey and query by tag
 - Allow user to vote only once
 - Allow user to unvote
+- Allow for more than 5 options
 
 **ENHANCEMENTS - SMALL**
 - Sign in after signing up
