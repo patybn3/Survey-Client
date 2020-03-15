@@ -1,18 +1,32 @@
 @import '~bootstrap/scss/bootstrap';
 
 @font-face {
-  font-family: 'Niramit', sans-serif;
+  font-family: 'Niramit';
   src: url('public/Niramit/Niramit-ExtraLight.ttf') format('truetype');
 }
 
-// @font-face {
-//   font-family: 'Macondo Swash Caps';
-//   src: url('public/Macondo_Swash_Caps/MacondoSwashCaps-Regular.ttf') format('truetype');
-// }
+@font-face {
+  font-family: 'Tenali Ramakrishna';
+  src: url('public/Tenali_Ramakrishna/TenaliRamakrishna-Regular.ttf') format('truetype');
+}
 
 html,
 body {
   height: 100%;
+  background-color: #242e3f;
+  background-image: url("https://www.transparenttextures.com/patterns/arches.png");
+}
+
+h1 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/johannes-plenio-DKix6Un55mw-unsplash.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: 'Tenali Ramakrishna';
+  padding: 60px 10px 60px 10px;
+  font-size: 55px;
 }
 
 .btn-dark {
@@ -26,58 +40,77 @@ body {
 
 main {
   flex-direction: row-reverse;
-  // font-family: 'Averia Serif Libre';
-}
-
-h1 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/big-dipper.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  font-size: 70px;
-  color: white;
   font-family: 'Niramit';
-  padding: 120px 120px 180px 40px;
-  text-shadow: 3px 3px #a32b0b;
 }
 
 .box {
-  background-color: grey;
-  border-radius: 25px;
-  padding-left: 20px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  background-color: #3d3d3d;
-  background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
+  background-color: #645548;
+  border-radius: 4px;
 }
 
 .box .box {
   background-color: purple;
 }
 
-.title {
-  text-shadow: 2px 2px #a32b0b;
-  color: white;
+.intro {
+  color: #628aa4;
 }
 
-.user-actions,
-.form-group {
-  text-shadow: 2px 2px #a32b0b;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-radius: 10px;
-  color: white;
-  background-color: #3d3d3d;
-  background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
+.user-actions {
+  border-radius: 4px;
+  color: #a88868;
+  background-color: #43403d;
+  margin-left: 25px;
+  margin-top: 15px;
+  margin-bottom: 25px;
 }
 
 .sticky-footer {
   flex-shrink: none;
-  // font-family: 'Averia Serif Libre';
+  font-family: 'Niramit';
 }
 
-body {
-  background: #thistle;
-  background-color: black;
+@media (min-width: 480px) {
+  body {
+    background-color: #242e3f;
+  }
+  h1 {
+    font-size: 60px;
+    padding: 80px 20px 80px 20px;
+  }
+  .user-actions {
+    margin-left: 0;
+  }
+}
+@media (min-width: 768px) {
+  body {
+    background-color: #242e3f;
+  }
+  h1 {
+    padding: 120px 80px 120px 40px;
+    font-size: 90px;
+  }
+}
+@media (min-width: 992px) {
+  body {
+    background-color: #242e3f;
+  }
+  h1 {
+    padding: 150px 80px 150px 30px;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    background-color: #242e3f;
+  }
+  h1 {
+    padding: 180px 80px 180px 40px;
+  }
+  .box {
+    background-color: #645548;
+    border-radius: 2px;
+    padding-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 }
