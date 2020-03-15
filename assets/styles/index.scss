@@ -1,84 +1,142 @@
 @import '~bootstrap/scss/bootstrap';
 
-// @font-face {
-//   font-family: 'Averia Serif Libre';
-//   src: url('public/Averia_Serif_Libre/AveriaSerifLibre-BoldItalic.ttf') format('truetype');
-// }
-//
-// @font-face {
-//   font-family: 'Macondo Swash Caps';
-//   src: url('public/Macondo_Swash_Caps/MacondoSwashCaps-Regular.ttf') format('truetype');
-// }
+// hex to be written in lower case letters
+// repetitive letter to be shortcutted to 3 letters
+$font-color: #628aa4;
+$background: #645548;
+$media-background: #242e3f;
+$color-white: #fff;
+$golden-color: #a88868;
+$user-actions: #43403d;
+$half-opacity: rgba(0, 0, 0, .5);
+
+
+@font-face {
+  font-family: 'Niramit';
+  src: url('public/Niramit/Niramit-ExtraLight.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Tenali Ramakrishna';
+  src: url('public/Tenali_Ramakrishna/TenaliRamakrishna-Regular.ttf') format('truetype');
+}
 
 html,
 body {
+  background-color: $media-background;
   height: 100%;
 }
 
-.btn-dark {
-  button-color: white;
-  button-background-color: #383838;
+h1 {
+  background-image: linear-gradient($half-opacity, $half-opacity), url('public/johannes-plenio-DKix6Un55mw-unsplash.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: $color-white;
+  font-family: 'Tenali Ramakrishna';
+  font-size: 55px;
+  padding: 60px 10px;
+  position: relative;
 }
 
 .page-content {
   flex: 1 0 auto;
 }
 
-main {
-  flex-direction: row-reverse;
-  // font-family: 'Averia Serif Libre';
+.message,
+.name {
+  color: $font-color;
 }
 
-h1 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('public/aurora_borealis.jpeg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  font-size: 70px;
-  color: white;
-  // font-family: 'Macondo Swash Caps';
-  padding: 120px 120px 180px 40px;
-  text-shadow: 3px 3px #a32b0b;
+main {
+  flex-direction: row-reverse;
+  font-family: 'Niramit';
 }
 
 .box {
-  background-color: grey;
-  border-radius: 25px;
-  padding-left: 20px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  background-color: #3d3d3d;
-  background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
+  background-color: $background;
+  border-radius: 4px;
+  margin: 10px;
+  padding: 10px;
+
+  .box {
+    background-color: $font-color;
+  }
 }
 
-.box .box {
-  background-color: purple;
+.intro {
+  color: $font-color;
 }
 
-.title {
-  text-shadow: 2px 2px #a32b0b;
-  color: white;
-}
-
-.user-actions,
-.form-group {
-  text-shadow: 2px 2px #a32b0b;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-radius: 10px;
-  color: white;
-  background-color: #3d3d3d;
-  background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
+.user-actions {
+  background-color: $user-actions;
+  border-radius: 4px;
+  color: $golden-color;
+  margin-bottom: 25px;
+  margin-left: 25px;
+  margin-top: 15px;
 }
 
 .sticky-footer {
   flex-shrink: none;
-  // font-family: 'Averia Serif Libre';
+  font-family: 'Niramit';
 }
 
-body {
-  background: #thistle;
-  background-color: #005270;
-  background-image: url("https://www.transparenttextures.com/patterns/buried.png");
+@media (min-width: 480px) {
+  body {
+    background-color: $media-background;
+  }
+
+  h1 {
+    font-size: 60px;
+    padding: 80px 20px;
+  }
+
+  .user-actions {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    background-color: $media-background;
+  }
+
+  h1 {
+    font-size: 90px;
+    padding: 120px 80px 120px 40px;
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    background-color: $media-background;
+  }
+
+  h1 {
+    padding: 150px 80px 150px 30px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    background-color: $media-background;
+  }
+
+  h1 {
+    padding: 180px 80px 180px 40px;
+}
+
+  .box {
+    background-color: $background;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding-left: 20px;
+  }
+}
+
+.create-form,
+.update-form {
+  color: $font-color;
 }

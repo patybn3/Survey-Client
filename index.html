@@ -12,65 +12,64 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="d-flex flex-column">
-          <div class="page-content">
-            <header>
-              <h1>Pollaris Surveys</h1>
-            </header>
-            <main class="container-fluid row main">
-              <section class="user-actions col-xs-12 col-md-4">
-                <p id="message"></p>
-                <form id="sign-up" class="form-group">
-                  <fieldset>
-                    <legend>Sign up!</legend>
-                    <input name='credentials[email]' class="form-control" type='email' placeholder="email@email.com">
-                    <br>
-                    <input name='credentials[password]' class="form-control" type='password' placeholder="password">
-                    <br>
-                    <input name='credentials[password_confirmation]' class="form-control" type='password' placeholder="confirm password">
-                    <br>
-                    <input type='submit' class="form-control" value='Sign Up!'>
-                  </fieldset>
-                </form>
-                <form id="sign-in" class="form-group">
-                  <fieldset>
-                    <legend>Sign in!</legend>
-                    <input name='credentials[email]' class="form-control" type='email' placeholder="email@email.com">
-                    <br>
-                    <input name='credentials[password]' class="form-control" type='password' placeholder="password">
-                    <br>
-                    <input type='submit' class="form-control" value='Sign In!'>
-                  </fieldset>
-                </form>
-                <form id="change-password" class="form-group">
-                  <fieldset>
-                    <legend>Change password!</legend>
-                    <input name='passwords[old]' class="form-control" type='password' placeholder="old p4ssw0rd143">
-                    <br>
-                    <input name='passwords[new]' class="form-control" type='password' placeholder="new p4ssw0rd143">
-                    <br>
-                    <input type='submit' class="form-control" value='change password!'>
-                  </fieldset>
-                </form>
-                <form id="sign-out" class="form-group">
-                  <fieldset>
-                    <legend>Sign out!</legend>
-                    <input type='submit' class="form-control" value='Sign Out!'>
-                  </fieldset>
-                </form>
-                <button id="index-my-surveys-button" class="btn btn-dark">My surveys</button>
-                <button id="index-all-surveys-button" class="btn btn-dark">All surveys</button>
-                <button id="create-survey-button" class="btn btn-dark">Create survey</button>
-                <section class="intro">
-                  <p> Sign up and sign in to create, manage and take surveys!
-                  </p>
-                </section>
-              </section>
-              <div id="survey-content" class="col-xs-12 col-md-8">
-              </div>
-          </main>
-          </div>
-          <footer class="sticky-footer container-fluid text-center py-4 bg-dark text-white-50">
-            Copyright 2020 - Paty Antlitz, Ethan Strominger, Tukrong Klengdong, Ash Grevelink
-          </footer>
-        </body>
+      <div class="page-content">
+        <header>
+          <h1>POLLARIS SURVEYS</h1>
+        </header>
+        <main class="container-fluid row main">
+          <section class="user-actions col-xs-12 col-md-4">
+            <p class="message"></p>
+            <form id="sign-up" class="form-group">
+              <fieldset>
+                <legend>Sign up!</legend>
+                <input name='credentials[email]' class="form-control" type='email' placeholder="email@email.com">
+                <br>
+                <input name='credentials[password]' class="form-control" type='password' placeholder="password">
+                <br>
+                <input name='credentials[password_confirmation]' class="form-control" type='password' placeholder="confirm password">
+                <br>
+                <input type='submit' class="form-control" value='Sign Up!'>
+              </fieldset>
+            </form>
+            <form id="sign-in" class="form-group">
+              <fieldset>
+                <legend>Sign in!</legend>
+                <input name='credentials[email]' class="form-control" type='email' placeholder="email@email.com">
+                <br>
+                <input name='credentials[password]' class="form-control" type='password' placeholder="password">
+                <br>
+                <input type='submit' class="form-control" value='Sign In!'>
+              </fieldset>
+            </form>
+            <form id="change-password" class="form-group">
+              <fieldset>
+                <legend>Change password!</legend>
+                <input name='passwords[old]' class="form-control" type='password' placeholder="old p4ssw0rd143">
+                <br>
+                <input name='passwords[new]' class="form-control" type='password' placeholder="new p4ssw0rd143">
+                <br>
+                <input type='submit' class="form-control" value='change password!'>
+              </fieldset>
+            </form>
+            <form id="sign-out" class="form-group">
+              <fieldset>
+                <legend>Sign out!</legend>
+                <input type='submit' class="form-control" value='Sign Out!'>
+              </fieldset>
+            </form>
+            <button id="index-my-surveys-button" class="btn btn-dark">My surveys</button>
+            <button id="index-all-surveys-button" class="btn btn-dark">All surveys</button>
+            <button id="create-survey-button" class="btn btn-dark">Create survey</button>
+            <section class="intro">
+              <p> Sign up and sign in to create, manage and take surveys!
+              </p>
+            </section>
+          </section>
+          <section class="survey-content col-xs-12 col-md-8"></section>
+        </main>
+      </div>
+      <footer class="sticky-footer container-fluid text-center py-4 bg-dark text-white-50">
+        Copyright 2020 - Paty Antlitz, Ethan Strominger, Tukrong Klengdong, Ash Grevelink
+      </footer>
+    </body>
 </html>
