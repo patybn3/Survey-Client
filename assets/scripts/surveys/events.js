@@ -22,23 +22,23 @@ const eventHandlers = () => {
   $('#create-survey-button').on('click', showFormForCreate)
   $('#index-all-surveys-button').on('click', onIndexAllSurveys)
   $('#index-my-surveys-button').on('click', onIndexMySurveys)
-  $('#survey-content').on('click', '.remove-survey', onDeleteSurvey)
-  $('#survey-content').on('click', '.edit-survey', onEditSurveyStart)
-  $('#survey-content').on('click', '.view-take-survey-button', onViewTakeSurvey)
+  $('.survey-content').on('click', '.remove-survey', onDeleteSurvey)
+  $('.survey-content').on('click', '.edit-survey', onEditSurveyStart)
+  $('.survey-content').on('click', '.view-take-survey-button', onViewTakeSurvey)
   // the 2nd parameter to these handlers is the optional
   // selector that doesn't exist yet, but will exist
-  // with #survey-content once handlebars creates them.
+  // with .survey-content once handlebars creates them.
   // because they are forms, use an anonymous function to
   // preventDefault before sending them on.
-  $('#survey-content').on('submit', '.create-form', function (event) {
+  $('.survey-content').on('submit', '.create-form', function (event) {
     event.preventDefault()
     onCreateOrEditSurvey(event)
   })
-  $('#survey-content').on('submit', '.update-form', function (event) {
+  $('.survey-content').on('submit', '.update-form', function (event) {
     event.preventDefault()
     onEditSurveySubmit(event)
   })
-  $('#survey-content').on('click', '.vote-button', function (event) {
+  $('.survey-content').on('click', '.vote-button', function (event) {
     onVote(event)
   })
 }
@@ -59,9 +59,9 @@ const showFormForCreate = () => {
   $('#create-survey-button').hide()
   $('#index-my-surveys-button').show()
   $('#index-all-surveys-button').show()
-  $('#survey-content').empty()
+  $('.survey-content').empty()
   const surveyFormHtml = surveyFormCreate()
-  $('#survey-content').html(surveyFormHtml)
+  $('.survey-content').html(surveyFormHtml)
   $('.message').text(`Create your new survey!`)
 }
 

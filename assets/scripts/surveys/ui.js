@@ -41,7 +41,7 @@ const onIndexAllSurveysSuccess = function (response) {
   const indexSurveysHtml = indexAllSurveysTemplate({
     surveys: response.surveys
   })
-  $('#survey-content').html(indexSurveysHtml)
+  $('.survey-content').html(indexSurveysHtml)
   resetAllForms()
 }
 
@@ -59,7 +59,7 @@ const onDeleteSucess = function () {
 // index only the user's surveys
 const onIndexMySurveysSuccess = function (response) {
   store.surveys = response.surveys
-  $('#survey-content').empty()
+  $('.survey-content').empty()
   if (store.surveys.length === 0) {
     $('.message').text(`No surveys! Create one to start!`)
   } else {
@@ -68,7 +68,7 @@ const onIndexMySurveysSuccess = function (response) {
   const indexSurveysHtml = indexMySurveysTemplate({
     surveys: response.surveys
   })
-  $('#survey-content').html(indexSurveysHtml)
+  $('.survey-content').html(indexSurveysHtml)
   $('#index-all-surveys-button').show()
   $('#index-my-surveys-button').hide()
   resetAllForms()
@@ -80,7 +80,7 @@ const onShowSurveySuccess = function (response) {
   const surveyFormHtml = updateSurveyForm({
     survey: response.survey
   })
-  $('#survey-content').html(surveyFormHtml)
+  $('.survey-content').html(surveyFormHtml)
   store.survey = response
   resetAllForms()
 }
@@ -91,7 +91,7 @@ const onViewTakeSurveySuccess = function (response) {
   const surveyHtml = viewTakeSurvey({
     survey: response.survey
   })
-  $('#survey-content').html(surveyHtml)
+  $('.survey-content').html(surveyHtml)
   store.survey = response
   resetAllForms()
 }
