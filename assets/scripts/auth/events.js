@@ -15,8 +15,8 @@ const onSignUp = function (event) {
   // format data
   const data = getFormFields(form)
   if (data.credentials.password !== data.credentials.password_confirmation) {
-    $('.message').show()
-    $('.message').text(`passwords don't match. try again.`)
+    $('#message').show()
+    $('#message').text(`passwords don't match. try again.`)
     return ui.onSignUpFailure
   }
   // send to API
