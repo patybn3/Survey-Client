@@ -16,7 +16,7 @@
 
 **ENHANCEMENTS - LARGE**
 - Multiple questions per survey, each question with options
-- Show user who took survey
+- Show user who created survey
 - Query surveys by name
 - Add tags to survey and query by tag
 - Allow user to vote only once
