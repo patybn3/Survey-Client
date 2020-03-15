@@ -29,13 +29,13 @@ h1 {
   font-size: 55px;
 }
 
-.btn-dark {
-  button-color: white;
-  button-background-color: #383838;
-}
-
 .page-content {
   flex: 1 0 auto;
+}
+
+#message,
+.name {
+  color: #628aa4;
 }
 
 main {
@@ -46,10 +46,12 @@ main {
 .box {
   background-color: #645548;
   border-radius: 4px;
+  margin: 10px;
+  padding: 10px;
 }
 
 .box .box {
-  background-color: purple;
+  background-color: #628aa4;
 }
 
 .intro {
