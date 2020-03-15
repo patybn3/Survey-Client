@@ -13,6 +13,8 @@
 html,
 body {
   height: 100%;
+  background-color: #242e3f;
+  background-image: url("https://www.transparenttextures.com/patterns/arches.png");
 }
 
 h1 {
@@ -23,6 +25,8 @@ h1 {
   position: relative;
   color: white;
   font-family: 'Tenali Ramakrishna';
+  padding: 60px 10px 60px 10px;
+  font-size: 55px;
 }
 
 .btn-dark {
@@ -40,49 +44,47 @@ main {
 }
 
 .box {
-  background-color: grey;
-  border-radius: 2px;
-  padding-left: 20px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  background-color: #645548;
+  border-radius: 4px;
 }
 
 .box .box {
   background-color: purple;
 }
 
-.title {
-  text-shadow: 2px 2px #a32b0b;
-  color: white;
+.intro {
+  color: #628aa4;
 }
 
-.user-actions,
-.form-group {
-  // text-shadow: 2px 2px #a32b0b;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-radius: 2px;
-  color: white;
-  background-color: grey;
-  // background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
+.user-actions {
+  border-radius: 4px;
+  color: #a88868;
+  background-color: #43403d;
+  margin-left: 25px;
+  margin-top: 15px;
+  margin-bottom: 25px;
 }
 
 .sticky-footer {
   flex-shrink: none;
   font-family: 'Niramit';
 }
+
 @media (min-width: 480px) {
   body {
-    background-color: blue;
+    background-color: #242e3f;
   }
   h1 {
     font-size: 60px;
     padding: 80px 20px 80px 20px;
   }
+  .user-actions {
+    margin-left: 0;
+  }
 }
 @media (min-width: 768px) {
   body {
-    background-color: green;
+    background-color: #242e3f;
   }
   h1 {
     padding: 120px 80px 120px 40px;
@@ -91,7 +93,7 @@ main {
 }
 @media (min-width: 992px) {
   body {
-    background-color: yellow;
+    background-color: #242e3f;
   }
   h1 {
     padding: 150px 80px 150px 30px;
@@ -99,9 +101,16 @@ main {
 }
 @media (min-width: 1200px) {
   body {
-    background-color: orange;
+    background-color: #242e3f;
   }
   h1 {
     padding: 180px 80px 180px 40px;
+  }
+  .box {
+    background-color: #645548;
+    border-radius: 2px;
+    padding-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 }
