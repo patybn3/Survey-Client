@@ -12,8 +12,10 @@ const onIndexAllSurveysSuccess = function (response) {
   store.surveys = response.surveys
   if (store.surveys.length === 0) {
     $('.message').text(`No surveys yet! Create one to start!`)
+    $('.message')[0].scrollIntoView()
   } else {
     $('.message').text(`Viewing all user surveys!`)
+    $('.message')[0].scrollIntoView()
   }
   const indexSurveysHtml = indexAllSurveysTemplate({
     surveys: response.surveys
@@ -32,21 +34,27 @@ const onIndexMySurveysSuccess = function (response) {
   store.surveys = response.surveys
   if (store.creatingSurvey === true) {
     $('.message').text(`Survey successfully created! Showing all your surveys!`)
+    $('.message')[0].scrollIntoView()
     store.creatingSurvey = false
   } else if (store.editingSurvey === true) {
     $('.message').text(`Survey successfully edited! Showing all your surveys!`)
+    $('.message')[0].scrollIntoView()
     store.editingSurvey = false
   } else if (store.deletingSurvey === true) {
     if (store.surveys.length === 0) {
       $('.message').text(`Survey successfully deleted! No surveys left to show!`)
+      $('.message')[0].scrollIntoView()
     } else {
       $('.message').text(`Survey successfully deleted! Showing all your surveys!`)
+      $('.message')[0].scrollIntoView()
     }
     store.deletingSurvey = false
   } else if (store.surveys.length === 0) {
     $('.message').text(`No surveys! Create one to start!`)
+    $('.message')[0].scrollIntoView()
   } else {
     $('.message').text(`Viewing your surveys!`)
+    $('.message')[0].scrollIntoView()
   }
   const indexSurveysHtml = indexMySurveysTemplate({
     surveys: response.surveys
@@ -66,6 +74,7 @@ const onShowSurveySuccess = function (response) {
   })
   $('.survey-content').html(surveyFormHtml)
   $('.message').text(`Edit your survey! Note: we ensured vote count remains if you update the text field for an option.`)
+  $('.message')[0].scrollIntoView()
   store.survey = response.survey
   clearAllAuthForms()
 }
@@ -83,6 +92,7 @@ const onViewTakeSurveySuccess = function (response) {
     store.placingVote = false
   } else {
     $('.message').text(`View and vote on the survey!`)
+    $('.message')[0].scrollIntoView()
   }
   clearAllAuthForms()
 }
@@ -99,6 +109,7 @@ const onVoteSuccess = function (response) {
 const failure = function (error) {
   store.error = error
   $('.message').text(`Sorry, error on our end. Please try again.`)
+  $('.message')[0].scrollIntoView()
 }
 
 // ensure forms get reset if user starts filling them out and clicks somewhere
