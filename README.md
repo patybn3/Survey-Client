@@ -41,7 +41,7 @@ At least one commit per Developer a day. Commits message must be detailed, must 
 6. jQuery
 7. ajax
 8. Git
-9. GitHub
+9. GitHub w/automated Scrum board
 10. Handlebars
 Refer to the back-end repository mentioned above for a list of Technologies used for the back-end.
 
@@ -111,76 +111,9 @@ resolves any conflicts, also as a group.  Rebase will merge any changes.
 [X] UI - Only appropriate buttons appear
 [X] Review checklist
 
-## Sprints
-### Sprint 1
-**Target**
-[X] CRUD for Survey without options and without auth
-    [X] API
-    [X] UI
-
-**Review**
-Targeted and completed
-[X] CRUD for Survey without optons and **with auth**
-    [X] API
-
-Bonus completed
-[X] Sign up, sign in
-    [X] API (part of template)
-    [X] UI
-[X] Included auth
-
-Targeted and not completed:
-[X] CRUD for Survey without optons and **with auth**
-    [X] UI
-
-Retro
-???
-
-### Sprint 2
-**Target**
-[X] CRUD for options
-    [X] API
-    [X] UI
-**Stretch**
-[X] UI: Take Survey
-[X] API: Take Survey
-
-**Review**
-Targeted and completed:
-[X] CRUD for options
-    [X] API
-Targeted and not completed:
-[X] CRUD for options
-    [X] UI
-
-Demoed
-Worked with Mike to figure out how to show options
-
-**Retro**
-**Ash**
-What worked
-  - We all did an incredible job, got far, close to being done
-How to make it even better:
-  - Pay attention to Slack
-
-**TK**
-What worked
-  - Helped out others
-  - Found bug "GET issue"
-
-**Patty**
-What worked
-  - Tried to work on same problem, worked separately, ended up finding
-one that wOrked on one that was cleaner
-  - Checked front end together
-
-**Ethan**
-What worked
-  - Good combo of working separately and together
-How to make it even better
-  - Continue working on UI components separately
-  - Ethan listen to TK.  He found the issue, but Ethan was thinking of his solution.
-
 ## Unsolved Problems
 
-The future goal for this application is to allow an user to obtain a chart that will show and compare the answers of a survey by percentage. This feature is not a requirement.
+None
+
+## Future Plans
+Click [here](https://github.com/orgs/wat-the-duck/projects/1?card_filter_query=label%3Afuture) to see issues marked as "Future"
