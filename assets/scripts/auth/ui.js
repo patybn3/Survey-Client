@@ -6,20 +6,23 @@ const ui = require('./../surveys/ui.js')
 
 const onSignUpSuccess = function (response) {
   $('.message').text(`${response.user.email} successfully signed up!`)
+  $('.message')[0].scrollIntoView()
   ui.clearAllAuthForms()
 }
 
 const onSignUpFailure = function (response) {
   $('.message').text(`Sign up failed. Try again.`)
+  $('.message')[0].scrollIntoView()
   ui.clearAllAuthForms()
 }
 
 const onSignInSuccess = function (response) {
   $('.message').text(`${response.user.email} successfully signed in!`)
+  $('.message')[0].scrollIntoView()
   ui.clearAllAuthForms()
   $('#sign-in').hide()
   $('#sign-up').hide()
-  $('#change-password').show()
+  $('#show-password-button').show()
   $('#sign-out').show()
   $('#create-survey-button').show()
   $('#index-my-surveys-button').show()
@@ -29,28 +32,32 @@ const onSignInSuccess = function (response) {
 
 const onSignInFailure = function (response) {
   $('.message').text(`Sign in failed. Try again.`)
+  $('.message')[0].scrollIntoView()
   ui.clearAllAuthForms()
 }
 
 const onChangePasswordSuccess = function (response) {
   $('.message').text(`Successfully changed password!`)
+  $('.message')[0].scrollIntoView()
   ui.clearAllAuthForms()
 }
 
 const onChangePasswordFailure = function (response) {
   $('.message').text(`Change password failed. Try again.`)
+  $('.message')[0].scrollIntoView()
   ui.clearAllAuthForms()
 }
 
 const onSignOutSuccess = function (response) {
+  store.signingOut = true
+  store.user = null
   events.displayLoggedOutHome()
   // set the locally stored user data to null
-  store.user = null
-  store.signingOut = true
 }
 
 const onSignOutFailure = function (response) {
   $('.message').text(`Sign out failed. Try again.`)
+  $('.message')[0].scrollIntoView()
   ui.clearAllAuthForms()
 }
 

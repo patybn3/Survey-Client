@@ -17,11 +17,14 @@ const displayLoggedOutHome = () => {
   $('#create-survey-button').hide()
   $('#index-all-surveys-button').hide()
   $('#index-my-surveys-button').hide()
+  $('#show-password-button').hide()
+  $('#back-button').hide()
   $('#create-survey-form').hide()
   $('#edit-survey-form').hide()
   $('.survey-content').empty()
   if (store.signingOut === true) {
     $('.message').text(`Signed out!`)
+    $('.message')[0].scrollIntoView()
     store.signingOut = false
   } else {
     $('.message').text(`Sign up if you haven't already! You can use an
@@ -67,6 +70,7 @@ const showFormForCreate = () => {
   const surveyFormHtml = surveyFormCreate()
   $('.survey-content').html(surveyFormHtml)
   $('.message').text(`Create your new survey!`)
+  $('.message')[0].scrollIntoView()
   ui.clearAllAuthForms()
 }
 
