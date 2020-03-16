@@ -20,9 +20,14 @@ const displayLoggedOutHome = () => {
   $('#create-survey-form').hide()
   $('#edit-survey-form').hide()
   $('.survey-content').empty()
-  $('.message').text(`Sign up if you haven't already! You can use an
+  if (store.signingOut === true) {
+    $('.message').text(`Signed out!`)
+    store.signingOut = false
+  } else {
+    $('.message').text(`Sign up if you haven't already! You can use an
     email like "j@j.com" and password "j" just to try our app! Then sign in
     to manage and take surveys!`)
+  }
   ui.clearAllAuthForms()
 }
 
@@ -102,7 +107,7 @@ const onEditSurveyStart = (event) => {
 // when a user submits an edited survey
 const onEditSurveySubmit = (event) => {
   const data = getFormFields(event.target)
-  const id = store.survey.survey._id
+  const id = store.survey._id
   const survey = {
     survey: {
       name: data.survey.name,
@@ -132,7 +137,7 @@ const onVote = (event) => {
   const vote = {
     vote: voteId
   }
-  api.vote(store.survey.survey._id, vote)
+  api.vote(store.survey._id, vote)
     .then(ui.onVoteSuccess)
     .catch(ui.failure)
 }

@@ -54,6 +54,7 @@ const onSignOutSuccess = function (response) {
   events.displayLoggedOutHome()
   // set the locally stored user data to null
   store.user = null
+  store.signingOut = true
 }
 
 const onSignOutFailure = function (response) {

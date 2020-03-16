@@ -36,7 +36,11 @@ const onIndexMySurveysSuccess = function (response) {
     $('.message').text(`Survey successfully edited! Showing all your surveys!`)
     store.editingSurvey = false
   } else if (store.deletingSurvey === true) {
-    $('.message').text(`Survey successfully deleted! Showing all your surveys!`)
+    if (store.surveys.length === 0) {
+      $('.message').text(`Survey successfully deleted! No surveys left to show!`)
+    } else {
+      $('.message').text(`Survey successfully deleted! Showing all your surveys!`)
+    }
     store.deletingSurvey = false
   } else if (store.surveys.length === 0) {
     $('.message').text(`No surveys! Create one to start!`)
@@ -60,13 +64,13 @@ const onShowSurveySuccess = function (response) {
   })
   $('.survey-content').html(surveyFormHtml)
   $('.message').text(`Edit your survey! Note: we ensured vote count remains if you update the text field for an option.`)
-  store.survey = response
+  store.survey = response.survey
   clearAllAuthForms()
 }
 
 // show a single survey with options to vote!
 const onViewTakeSurveySuccess = function (response) {
-  store.survey = response
+  store.survey = response.survey
   const surveyHtml = viewTakeSurvey({
     survey: response.survey
   })
@@ -84,7 +88,7 @@ const onViewTakeSurveySuccess = function (response) {
 // show a single survey with options to vote!
 const onVoteSuccess = function (response) {
   store.placingVote = true
-  api.showSurvey(store.survey.survey._id)
+  api.showSurvey(store.survey._id)
     .then(onViewTakeSurveySuccess)
     .catch(failure)
 }
