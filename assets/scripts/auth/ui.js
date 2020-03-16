@@ -51,17 +51,7 @@ const onChangePasswordFailure = function (response) {
 
 const onSignOutSuccess = function (response) {
   $('.message').text(`successfully signed out!`)
-  $('#sign-out').trigger('reset')
-  $('#change-password').trigger('reset')
-  $('#change-password').hide()
-  $('#sign-out').hide()
-  $('#sign-in').show()
-  $('#sign-up').show()
-  $('#index-all-surveys-button').hide()
-  $('#index-my-surveys-button').hide()
-  $('#create-survey-button').hide()
-  store.signingOut = true
-  $('.survey-content').empty()
+  events.displayLoggedOutHome()
   // set the locally stored user data to null
   store.user = null
 }
