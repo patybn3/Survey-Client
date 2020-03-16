@@ -49,10 +49,10 @@ const onChangePasswordFailure = function (response) {
 }
 
 const onSignOutSuccess = function (response) {
+  store.signingOut = true
+  store.user = null
   events.displayLoggedOutHome()
   // set the locally stored user data to null
-  store.user = null
-  store.signingOut = true
 }
 
 const onSignOutFailure = function (response) {
