@@ -26,7 +26,7 @@ const displayLoggedOutHome = () => {
   } else {
     $('.message').text(`Sign up if you haven't already! You can use an
     email like "j@j.com" and password "j" just to try our app! Then sign in
-    to manage and take surveys!`)
+    to create, manage and take surveys!`)
   }
   ui.clearAllAuthForms()
 }
