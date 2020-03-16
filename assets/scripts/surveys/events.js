@@ -1,5 +1,7 @@
 'use strict'
 
+// events file creates event listeners and handles tasks when events happen
+
 const api = require('./api.js')
 const ui = require('./ui.js')
 const getFormFields = require('./../../../lib/get-form-fields')
@@ -18,6 +20,9 @@ const displayLoggedOutHome = () => {
   $('#create-survey-form').hide()
   $('#edit-survey-form').hide()
   $('.survey-content').empty()
+  $('.message').text(`Sign up if you haven't already! You can use an
+    email like "j@j.com" and password "j" just to try our app! Then sign in
+    to manage and take surveys!`)
   ui.clearAllAuthForms()
 }
 
@@ -121,6 +126,7 @@ const onViewTakeSurvey = (event) => {
     .catch(ui.failure)
 }
 
+// when a user clicks a 'vote' button
 const onVote = (event) => {
   const voteId = $(event.target).data('vote-id')
   const vote = {
