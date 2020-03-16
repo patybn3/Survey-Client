@@ -21,6 +21,7 @@ const onIndexAllSurveysSuccess = function (response) {
   $('.survey-content').html(indexSurveysHtml)
   $('#index-all-surveys-button').hide()
   $('#index-my-surveys-button').show()
+  $('#create-survey-button').show()
   clearAllAuthForms()
 }
 
@@ -50,6 +51,7 @@ const onIndexMySurveysSuccess = function (response) {
   const indexSurveysHtml = indexMySurveysTemplate({
     surveys: response.surveys
   })
+  $('#create-survey-button').show()
   $('.survey-content').empty()
   $('.survey-content').html(indexSurveysHtml)
   $('#index-all-surveys-button').show()
