@@ -1,6 +1,6 @@
 'use strict'
 
-// import event methods
+// import functionality from events files
 const surveyEvents = require('./surveys/events')
 const authEvents = require('./auth/events')
 

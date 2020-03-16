@@ -7,60 +7,43 @@ const indexMySurveysTemplate = require('../templates/survey-index-my-surveys.han
 const updateSurveyForm = require('../templates/survey-update-form.handlebars')
 const viewTakeSurvey = require('../templates/survey-view-and-take.handlebars')
 
+// index all surveys (created by any user)
 const onIndexAllSurveysSuccess = function (response) {
   store.surveys = response.surveys
-  // flow for indexing surveys after one was created
-  if (store.creatingSurvey === true) {
-    $('#survey-form').empty()
-    $('#create-survey-button').show()
-    $('.message').text(`Survey successfully created!`)
-    store.creatingSurvey = null
-    // flow for indexing surveys after one was edited
-  } else if (store.editingSurvey === true) {
-    $('#survey-form').empty()
-    $('#create-survey-button').show()
-    $('.message').text(`Survey successfully edited!`)
-    store.editingSurvey = null
-    // flow if indexing surveys after user signs out
-  } else if (store.signingOut === true) {
-    $('.message').text(`Successfully signed out!`)
-    store.signingOut = null
+  if (store.surveys.length === 0) {
+    $('.message').text(`No surveys yet! Create one to start!`)
   } else {
-    if (store.surveys.length === 0) {
-      $('.message').text(`No surveys yet! Create one to start!`)
-    } else {
-      $('.message').text(`Viewing all user surveys!`)
-    }
+    $('.message').text(`Viewing all user surveys!`)
   }
-  // flow for the logged-out view
-  if (store.user !== null && store.user !== undefined) {
-    $('#index-all-surveys-button').hide()
-    $('#index-my-surveys-button').show()
-  }
-  // add html to app
   const indexSurveysHtml = indexAllSurveysTemplate({
     surveys: response.surveys
   })
   $('.survey-content').html(indexSurveysHtml)
-  resetAllForms()
+  $('#index-all-surveys-button').hide()
+  $('#index-my-surveys-button').show()
+  $('#create-survey-button').show()
+  clearAllAuthForms()
 }
 
-const onDeleteSucess = function () {
-  if (store.deletingSurvey === true) {
-    $('.message').text(`Successfully deleted survey! Viewing all user surveys!`)
-    api.indexMySurveys()
-      .then((data) => {
-        onIndexMySurveysSuccess(data)
-      })
-      .catch(failure)
-  }
-  store.deletingSurvey = null
-}
-// index only the user's surveys
+// index 'my surveys'.
+// user wants to see 'my surveys' after creating, updating, deleting,
+// or clicking on 'my surveys' button from anywhere in the app
 const onIndexMySurveysSuccess = function (response) {
   store.surveys = response.surveys
-  $('.survey-content').empty()
-  if (store.surveys.length === 0) {
+  if (store.creatingSurvey === true) {
+    $('.message').text(`Survey successfully created! Showing all your surveys!`)
+    store.creatingSurvey = false
+  } else if (store.editingSurvey === true) {
+    $('.message').text(`Survey successfully edited! Showing all your surveys!`)
+    store.editingSurvey = false
+  } else if (store.deletingSurvey === true) {
+    if (store.surveys.length === 0) {
+      $('.message').text(`Survey successfully deleted! No surveys left to show!`)
+    } else {
+      $('.message').text(`Survey successfully deleted! Showing all your surveys!`)
+    }
+    store.deletingSurvey = false
+  } else if (store.surveys.length === 0) {
     $('.message').text(`No surveys! Create one to start!`)
   } else {
     $('.message').text(`Viewing your surveys!`)
@@ -68,37 +51,46 @@ const onIndexMySurveysSuccess = function (response) {
   const indexSurveysHtml = indexMySurveysTemplate({
     surveys: response.surveys
   })
+  $('#create-survey-button').show()
+  $('.survey-content').empty()
   $('.survey-content').html(indexSurveysHtml)
   $('#index-all-surveys-button').show()
   $('#index-my-surveys-button').hide()
-  resetAllForms()
+  clearAllAuthForms()
 }
 
-// show a single survey
+// show a single survey that a user wants to edit/update
 const onShowSurveySuccess = function (response) {
-  $('.message').text(`Edit your survey!`)
   const surveyFormHtml = updateSurveyForm({
     survey: response.survey
   })
   $('.survey-content').html(surveyFormHtml)
-  store.survey = response
-  resetAllForms()
+  $('.message').text(`Edit your survey! Note: we ensured vote count remains if you update the text field for an option.`)
+  store.survey = response.survey
+  clearAllAuthForms()
 }
 
 // show a single survey with options to vote!
 const onViewTakeSurveySuccess = function (response) {
-  $('.message').text(`View and vote on your survey!`)
+  store.survey = response.survey
   const surveyHtml = viewTakeSurvey({
     survey: response.survey
   })
+  $('#index-my-surveys-button').show()
   $('.survey-content').html(surveyHtml)
-  store.survey = response
-  resetAllForms()
+  if (store.placingVote === true) {
+    $('.message').text(`Vote successfully logged!`)
+    store.placingVote = false
+  } else {
+    $('.message').text(`View and vote on the survey!`)
+  }
+  clearAllAuthForms()
 }
 
+// show a single survey with options to vote!
 const onVoteSuccess = function (response) {
-  resetAllForms()
-  api.showSurvey(store.survey.survey._id)
+  store.placingVote = true
+  api.showSurvey(store.survey._id)
     .then(onViewTakeSurveySuccess)
     .catch(failure)
 }
@@ -109,14 +101,13 @@ const failure = function (error) {
   $('.message').text(`Sorry, error on our end. Please try again.`)
 }
 
-const resetAllForms = function () {
+// ensure forms get reset if user starts filling them out and clicks somewhere
+// else instead
+const clearAllAuthForms = function () {
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
   $('#change-password').trigger('reset')
   $('#sign-out').trigger('reset')
-  store.creatingSurvey = null
-  store.editingSurvey = null
-  store.deletingSurvey = null
 }
 
 module.exports = {
@@ -124,8 +115,7 @@ module.exports = {
   onIndexMySurveysSuccess,
   onShowSurveySuccess,
   onViewTakeSurveySuccess,
+  clearAllAuthForms,
   onVoteSuccess,
-  resetAllForms,
-  failure,
-  onDeleteSucess
+  failure
 }
