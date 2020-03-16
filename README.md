@@ -41,7 +41,7 @@ At least one commit per Developer a day. Commits message must be detailed, must 
 6. jQuery
 7. ajax
 8. Git
-9. GitHub
+9. GitHub w/automated Scrum board
 10. Handlebars
 Refer to the back-end repository mentioned above for a list of Technologies used for the back-end.
 
@@ -183,4 +183,7 @@ How to make it even better
 
 ## Unsolved Problems
 
-The future goal for this application is to allow an user to obtain a chart that will show and compare the answers of a survey by percentage. This feature is not a requirement.
+None
+
+## Future Plans
+Click [here](https://github.com/orgs/wat-the-duck/projects/1?card_filter_query=label%3Afuture) to see issues marked as "Future"
