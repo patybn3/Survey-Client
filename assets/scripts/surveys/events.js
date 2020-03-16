@@ -17,6 +17,8 @@ const displayLoggedOutHome = () => {
   $('#create-survey-button').hide()
   $('#index-all-surveys-button').hide()
   $('#index-my-surveys-button').hide()
+  $('#show-password-button').hide()
+  $('#back-button').hide()
   $('#create-survey-form').hide()
   $('#edit-survey-form').hide()
   $('.survey-content').empty()

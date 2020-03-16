@@ -48,6 +48,8 @@ const onSignIn = function (event) {
 }
 
 const onChangePassword = function (event) {
+  $('#change-password').hide()
+  $('#back-button').hide()
   // default event reloads page on button click
   event.preventDefault()
 
@@ -90,7 +92,17 @@ const eventHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
-  $('#sign-out').on('submit', onSignOut)
+  $('#show-password-button').on('click', () => {
+    $('#change-password').show()
+    $('#show-password-button').hide()
+    $('#back-button').show()
+  })
+  $('#back-button').on('click', () => {
+    $('#change-password').hide()
+    $('#show-password-button').show()
+    $('#back-button').hide()
+  })
+  $('#sign-out').on('click', onSignOut)
 }
 
 module.exports = {

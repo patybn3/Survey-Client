@@ -22,7 +22,7 @@ const onSignInSuccess = function (response) {
   ui.clearAllAuthForms()
   $('#sign-in').hide()
   $('#sign-up').hide()
-  $('#change-password').show()
+  $('#show-password-button').show()
   $('#sign-out').show()
   $('#create-survey-button').show()
   $('#index-my-surveys-button').show()
