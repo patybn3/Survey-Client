@@ -1,10 +1,10 @@
 # Pollaris Surveys Client
 
   Pollaris Surveys is Full Stack Web Application developed as a group project by the following Sofware Engineers:
-  [Ash Grevelink](github.com/hashbangash),
-  [Ethan Strominger](github.com/ethanstrominger),
-  [Tukrong Klengdong](github.com/tukrong),
-  [Patricia Antlitz](github.com/patybn3).
+  [Ash Grevelink](https://github.com/hashbangash),
+  [Ethan Strominger](https://github.com/ethanstrominger),
+  [Tukrong Klengdong](https://github.com/tukrong),
+  [Patricia Antlitz](https://github.com/patybn3).
 
 The Back-End repository of this app is stored at [Pollaris API](https://github.com/wat-the-duck/pollaris-surveys-api).
 And its version was deployd to [Heroku](https://mighty-retreat-69793.herokuapp.com/).
@@ -41,7 +41,7 @@ At least one commit per Developer a day. Commits message must be detailed, must 
 6. jQuery
 7. ajax
 8. Git
-9. GitHub
+9. GitHub w/automated Scrum board
 10. Handlebars
 Refer to the back-end repository mentioned above for a list of Technologies used for the back-end.
 
@@ -69,118 +69,51 @@ Refer to the back-end repository mentioned above for a list of Technologies used
 ![IMG_3825](https://user-images.githubusercontent.com/22508682/76435476-68528b00-638d-11ea-8990-25da5a3d51d5.jpg)
 ![IMG_3822](https://user-images.githubusercontent.com/22508682/76435491-6d173f00-638d-11ea-9ea7-abefba33b9f0.jpg)
 
-3. View 3, should allow an user to add a new survey
+3. View 3, should allow a user to add a new survey
 ![IMG_3824](https://user-images.githubusercontent.com/22508682/76435580-8d46fe00-638d-11ea-88ca-ce6094a5dae4.jpg)
 
-4. View 4, should allow an user to see the details of a survey.
+4. View 4, should allow a user to see the details of a survey.
 ![IMG_3828](https://user-images.githubusercontent.com/22508682/76435607-98019300-638d-11ea-8e0a-d0e550e874c1.jpg)
 
-5. View 5, should allow an user to see the form to update a survey.
+5. View 5, should allow a user to see the form to update a survey.
 ![IMG_3827](https://user-images.githubusercontent.com/22508682/76435626-9cc64700-638d-11ea-978f-10e6397ab897.jpg)
 
 ## Planning
 
 1. One person:
-  [X] Download api template and push
-  [X] Deploy to heroku
-  [X] Download UI template and push
-  [X] Deploy to heroku
-[X] API Sign up, sign in
-[X] UI Sign up, sign in
+  - [X] Download API template and push
+  - [X] Deploy to heroku
+  - [X] Download UI template and push
+  - [X] Deploy to heroku
+- [X] API Sign up, sign in
+- [X] UI Sign up, sign in
 2. Each team member
-  [X] Clones repos
-[X] Survey API CRUD for resource with no options
-[X] Survey UI CRUD for resource with no options
-[X] Survey API CRUD for resource with options
+  - [X] Clones repos
+- [X] Survey API CRUD for resource with no options
+- [X] Survey UI CRUD for resource with no options
+- [X] Survey API CRUD for resource with options
 
 Work in three groups on UI.  When someone is ready to push to feature,
 then do the pull request as a group.  Then, everybody rebases and
 resolves any conflicts, also as a group.  Rebase will merge any changes.
 
 3.
-[X] Survey UI CRUD for resource with options
-    [X] CREATE
-        [X] Suggestion: Do a reset so can create a new item
-    [X] INDEX - List all surveys, my surveys
-    [X] SHOW/UPDATE of options
-    [X] DELETE
-[X] Take Survey
-    [X] API
-    [X] UI
-[X] UI - Handle errors
-[X] UI - Only appropriate buttons appear
-[X] Review checklist
-
-## Sprints
-### Sprint 1
-**Target**
-[X] CRUD for Survey without options and without auth
-    [X] API
-    [X] UI
-
-**Review**
-Targeted and completed
-[X] CRUD for Survey without optons and **with auth**
-    [X] API
-
-Bonus completed
-[X] Sign up, sign in
-    [X] API (part of template)
-    [X] UI
-[X] Included auth
-
-Targeted and not completed:
-[X] CRUD for Survey without optons and **with auth**
-    [X] UI
-
-Retro
-???
-
-### Sprint 2
-**Target**
-[X] CRUD for options
-    [X] API
-    [X] UI
-**Stretch**
-[X] UI: Take Survey
-[X] API: Take Survey
-
-**Review**
-Targeted and completed:
-[X] CRUD for options
-    [X] API
-Targeted and not completed:
-[X] CRUD for options
-    [X] UI
-
-Demoed
-Worked with Mike to figure out how to show options
-
-**Retro**
-**Ash**
-What worked
-  - We all did an incredible job, got far, close to being done
-How to make it even better:
-  - Pay attention to Slack
-
-**TK**
-What worked
-  - Helped out others
-  - Found bug "GET issue"
-
-**Patty**
-What worked
-  - Tried to work on same problem, worked separately, ended up finding
-one that wOrked on one that was cleaner
-  - Checked front end together
-
-**Ethan**
-What worked
-  - Good combo of working separately and together
-How to make it even better
-  - Continue working on UI components separately
-  - Ethan listen to TK.  He found the issue, but Ethan was thinking of his solution.
+- [X] Survey UI CRUD for resource with options
+    - [X] CREATE
+        - [X] Suggestion: Do a reset so can create a new item
+    - [X] INDEX - List all surveys, my surveys
+    - [X] SHOW/UPDATE of options
+    - [X] DELETE
+- [X] Take Survey
+    - [X] API
+    - [X] UI
+- [X] UI - Handle errors
+- [X] UI - Only appropriate buttons appear
+- [X] Review checklist
 
 ## Unsolved Problems
 
-The future goal for this application is to allow an user to obtain a chart that will show and compare the answers of a survey by percentage. This feature is not a requirement.
+None
+
+## Future Plans
+Click [here](https://github.com/orgs/wat-the-duck/projects/1?card_filter_query=label%3Afuture) to see issues marked as "Future"
