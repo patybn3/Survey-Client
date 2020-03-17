@@ -69,9 +69,25 @@ const onIndexMySurveysSuccess = function (response) {
 
 // show a single survey that a user wants to edit/update
 const onShowSurveySuccess = function (response) {
+  $('.message').text(`Edit your survey!`)
+  const survey = response.survey
+
+  // Prep optionsWithIndex for use by survey-update-forms handler
+  // TODO: Refactor to share with onViewTakeSurveySuccess
+  const optionsWithIndex = survey.options.slice(0)
+  const rowsToDisplay = optionsWithIndex.length + 5
+  for (let i = 0; i < optionsWithIndex.length; i++) {
+    optionsWithIndex[i].optionArrayIndex = i
+  }
+  for (let j = optionsWithIndex.length; j < rowsToDisplay; j++) {
+    optionsWithIndex[j] = {option: '', optionArrayIndex: j}
+  }
+  survey.optionsWithIndex = optionsWithIndex
+  // end prep of optionsWithIndex
   const surveyFormHtml = updateSurveyForm({
     survey: response.survey
   })
+
   $('.survey-content').html(surveyFormHtml)
   $('.message').text(`Edit your survey! Note: we ensured vote count remains if you update the text field for an option.`)
   $('.message')[0].scrollIntoView()
@@ -82,8 +98,18 @@ const onShowSurveySuccess = function (response) {
 // show a single survey with options to vote!
 const onViewTakeSurveySuccess = function (response) {
   store.survey = response.survey
+  $('.message').text(`View and vote on your survey!`)
+
+  // Prep optionsWithIndex for use by survey-update-forms handler
+  const survey = response.survey
+  const optionsWithIndex = survey.options.slice(0)
+  for (let i = 0; i < optionsWithIndex.length; i++) {
+    optionsWithIndex[i].optionArrayIndex = i
+  }
+  survey.optionsWithIndex = optionsWithIndex
+  // end prep of optionsWithIndex
   const surveyHtml = viewTakeSurvey({
-    survey: response.survey
+    survey: survey
   })
   $('#index-my-surveys-button').show()
   $('.survey-content').html(surveyHtml)

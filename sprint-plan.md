@@ -91,7 +91,8 @@ Work solo, communicate through slack what doing, pair and review together as it 
 
 # Sprint 5
 ## Proposed Plan
-?? Review and/or Retro for Sprint 4
+?? Review and/or Retro for unSprint 4 (weekend)
+
 **Process/Schedule**
 - 1 PM - Scrum Meeting (standup)
 - 5 PM Review (review UI)
@@ -104,7 +105,7 @@ Complete MVP and fix any bugs
 **Decisions**
 [ ] Keep with Ash's design or go with TKs.  If TKs is not coded, stick with Ash for MVP.  TK needs link from Sign Up to Sign In and vice versa.
 
-**MUST HAVE**
+**DESIRABLE**
 
 - Patty: pin both repositories to your github homepage
 - Ethan: pin both repositories to your github homepage
@@ -121,12 +122,12 @@ Complete MVP and fix any bugs
 - Review checklist
 
 **COULD HAVE**
-- UI: Put Sign Up and Sign In next to each other #75 opened by Ethan
-- UI: change colors and fonts to be more accessible #68 opened by Ash
-- UI: advanced error handling #71 opened by Ash
-- UI: add comments for each function #72 opened by Ash
-- API: add comments for each function #36 opened by Ash
-- No limit or larger limit on number of options for a survey #73 opened by Ethan
+- No UI: Put Sign Up and Sign In next to each other #75 opened by Ethan
+- Yes UI: change colors and fonts to be more accessible #68 opened by Ash
+- Yes UI: advanced error handling #71 opened by Ash
+- No UI: add comments for each function #72 opened by Ash
+- No API: add comments for each function #36 opened by Ash
+- No No limit or larger limit on number of options for a survey #73 opened by Ethan
 
 **WON'T HAVE**
 - UI: limit number of votes you can make #67 opened by Ash

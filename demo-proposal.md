@@ -1,5 +1,5 @@
-- UI demo
-- Postman demo (Ethan)
-- Process / Technology used
-- What Worked / Challenges / How we overcame them / What we will do differently next time
-- What's Next
+- UI demo, process technology used (Ash), technology used (Ash) - 2 minutes
+- Postman demo (Ethan) - 1 minute
+- Process (Ethan) - 1 minute
+- What Worked / Challenges / How we overcame them / What we will do differently next time - 2 minute (TK)
+- What's Next - 1 minute (Patty)
