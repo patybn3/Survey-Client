@@ -2,30 +2,27 @@
 
 const store = require('./../store')
 const events = require('./../surveys/events.js')
+const ui = require('./../surveys/ui.js')
 
 const onSignUpSuccess = function (response) {
   $('.message').text(`${response.user.email} successfully signed up!`)
-  $('#sign-up').trigger('reset')
-  $('#sign-in').trigger('reset')
-  $('.message').removeClass()
-  $('.message').addClass('success-message')
+  $('.message')[0].scrollIntoView()
+  ui.clearAllAuthForms()
 }
 
 const onSignUpFailure = function (response) {
-  $('.message').text(`sign up failed. try again.`)
-  $('#sign-up').trigger('reset')
-  $('#sign-in').trigger('reset')
-  $('.message').removeClass()
-  $('.message').addClass('failure-message')
+  $('.message').text(`Sign up failed. Try again.`)
+  $('.message')[0].scrollIntoView()
+  ui.clearAllAuthForms()
 }
 
 const onSignInSuccess = function (response) {
   $('.message').text(`${response.user.email} successfully signed in!`)
-  $('#sign-up').trigger('reset')
-  $('#sign-in').trigger('reset')
+  $('.message')[0].scrollIntoView()
+  ui.clearAllAuthForms()
   $('#sign-in').hide()
   $('#sign-up').hide()
-  $('#change-password').show()
+  $('#show-password-button').show()
   $('#sign-out').show()
   $('#create-survey-button').show()
   $('#index-my-surveys-button').show()
@@ -34,42 +31,34 @@ const onSignInSuccess = function (response) {
 }
 
 const onSignInFailure = function (response) {
-  $('.message').text(`sign in failed. try again.`)
-  $('#sign-up').trigger('reset')
-  $('#sign-in').trigger('reset')
+  $('.message').text(`Sign in failed. Try again.`)
+  $('.message')[0].scrollIntoView()
+  ui.clearAllAuthForms()
 }
 
 const onChangePasswordSuccess = function (response) {
-  $('.message').text(`successfully changed password!`)
-  $('#change-password').trigger('reset')
+  $('.message').text(`Successfully changed password!`)
+  $('.message')[0].scrollIntoView()
+  ui.clearAllAuthForms()
 }
 
 const onChangePasswordFailure = function (response) {
-  $('.message').text(`change password failed. try again.`)
-  $('#change-password').trigger('reset')
+  $('.message').text(`Change password failed. Try again.`)
+  $('.message')[0].scrollIntoView()
+  ui.clearAllAuthForms()
 }
 
 const onSignOutSuccess = function (response) {
-  $('.message').text(`successfully signed out!`)
-  $('#sign-out').trigger('reset')
-  $('#change-password').trigger('reset')
-  $('#change-password').hide()
-  $('#sign-out').hide()
-  $('#sign-in').show()
-  $('#sign-up').show()
-  $('#index-all-surveys-button').hide()
-  $('#index-my-surveys-button').hide()
-  $('#create-survey-button').hide()
   store.signingOut = true
-  $('.survey-content').empty()
-  // set the locally stored user data to null
   store.user = null
+  events.displayLoggedOutHome()
+  // set the locally stored user data to null
 }
 
 const onSignOutFailure = function (response) {
-  $('.message').text(`sign out failed. try again.`)
-  $('#sign-out').trigger('reset')
-  $('#sign-in').trigger('reset')
+  $('.message').text(`Sign out failed. Try again.`)
+  $('.message')[0].scrollIntoView()
+  ui.clearAllAuthForms()
 }
 
 module.exports = {
