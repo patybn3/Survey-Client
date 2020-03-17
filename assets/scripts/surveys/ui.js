@@ -88,7 +88,6 @@ const onShowSurveySuccess = function (response) {
   }
   for (let j = optionsWithIndex.length; j < rowsToDisplay; j++) {
     optionsWithIndex[j] = {option: '', optionArrayIndex: j}
-    console.log('j', optionsWithIndex[j])
   }
   survey.optionsWithIndex = optionsWithIndex
   // end prep of optionsWithIndex
