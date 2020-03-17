@@ -45,6 +45,15 @@ const eventHandlers = () => {
   $('.survey-content').on('click', '.vote-button', function (event) {
     onVote(event)
   })
+  $('.survey-content').on('click', '.back-button-survey', () => {
+    const survey = store.survey.owner
+    const owner = store.user._id
+    if (survey === owner) {
+      onIndexMySurveys()
+    } else {
+      onIndexAllSurveys()
+    }
+  })
 
   // the 2nd parameter to these handlers is the optional
   // selector that doesn't exist yet, but will exist
