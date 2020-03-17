@@ -80,6 +80,7 @@ Refer to the back-end repository mentioned above for a list of Technologies used
 
 ## Planning
 
+**Kickoff**
 1. One person:
   - [X] Download API template and push
   - [X] Deploy to heroku
@@ -110,6 +111,10 @@ resolves any conflicts, also as a group.  Rebase will merge any changes.
 - [X] UI - Handle errors
 - [X] UI - Only appropriate buttons appear
 - [X] Review checklist
+
+## Process
+
+See [process.md](process.md) and [sprint-plan.md](sprint-plan.md)
 
 ## Unsolved Problems
 
