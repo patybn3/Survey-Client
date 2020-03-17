@@ -39,6 +39,7 @@ const onSignInFailure = function (response) {
 const onChangePasswordSuccess = function (response) {
   $('.message').text(`Successfully changed password!`)
   $('.message')[0].scrollIntoView()
+  $('#show-password-button').show()
   ui.clearAllAuthForms()
 }
 

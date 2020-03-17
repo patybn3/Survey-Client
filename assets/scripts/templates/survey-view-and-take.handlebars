@@ -6,13 +6,24 @@
     <p>Number of Votes: {{survey.options.[0].numVotes}}</p>
     <button data-vote-id="0" class="vote-button btn btn-light btn-sm">Vote</button>
   </div>
-  {{#each survey.optionsWithIndex as |optionObject|}}
-    <div class='box'>
-      <p name='options[{{optionObject.optionArrayIndex}}]'>{{optionObject.option}}</p>
-      <p>Number of Votes: {{optionObject.numVotes}}</p>
-      <button data-vote-id="{{optionObject.optionArrayIndex}}"
-         class="vote-button btn btn-light btn-sm">Vote</button>
-    </div>
-  {{/each}}
-  <button class="back-button-survey" class="btn btn-sm">Back</button>
+  <div class='box'>
+    <p name='options[1]'>{{survey.options.[1].option}}</p>
+    <p>Number of Votes: {{survey.options.[1].numVotes}}</p>
+    <button data-vote-id="1" class="vote-button btn btn-light btn-sm">Vote</button>
   </div>
+  <div class='box'>
+    <p name='options[2]'>{{survey.options.[2].option}}</p>
+    <p>Number of Votes: {{survey.options.[2].numVotes}}</p>
+    <button data-vote-id="2" class="vote-button btn btn-light btn-sm">Vote</button>
+  </div>
+  <div class='box'>
+    <p name='options[3]'>{{survey.options.[3].option}}</p>
+    <p>Number of Votes: {{survey.options.[3].numVotes}}</p>
+    <button data-vote-id="3" class="vote-button btn btn-light btn-sm">Vote</button>
+  </div>
+  <div class='box'>
+    <p name='options[4]'>{{survey.options.[4].option}}</p>
+    <p>Number of Votes: {{survey.options.[4].numVotes}}</p>
+    <button data-vote-id="4" class="vote-button btn btn-light btn-sm">Vote</button>
+  </div>
+</div>
