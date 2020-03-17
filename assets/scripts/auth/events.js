@@ -102,11 +102,6 @@ const eventHandlers = () => {
     $('#show-password-button').show()
     $('#back-button').hide()
   })
-  $('#back-button').on('click', () => {
-    $('#change-password').hide()
-    $('#show-password-button').show()
-    $('#back-button').hide()
-  })
   $('#sign-out').on('click', onSignOut)
 }
 
