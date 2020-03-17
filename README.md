@@ -112,7 +112,7 @@ resolves any conflicts, also as a group.  Rebase will merge any changes.
 - [X] UI - Only appropriate buttons appear
 - [X] Review checklist
 
-**Process**
+
 See [process.md](process.md) and [sprint-plan.md](sprint-plan.md)
 
 ## Unsolved Problems
