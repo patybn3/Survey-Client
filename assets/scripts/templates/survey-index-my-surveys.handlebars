@@ -9,9 +9,10 @@
       {{/if}}
     </h4>
     <div class='options'>
-      <p>Options: {{survey.options.[0].option}}, {{survey.options.[1].option}},
-        {{survey.options.[2].option}}, {{survey.options.[3].option}},
-        {{survey.options.[4].option}}
+      <p>Options:
+      {{#each survey.options as |fetchedOption|}}
+        {{fetchedOption.option}}:
+      {{/each}}
       </p>
       {{> survey-delete-button }}
       {{> survey-update-button }}
