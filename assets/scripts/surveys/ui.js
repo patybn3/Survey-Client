@@ -7,6 +7,27 @@ const indexMySurveysTemplate = require('../templates/survey-index-my-surveys.han
 const updateSurveyForm = require('../templates/survey-update-form.handlebars')
 const viewTakeSurvey = require('../templates/survey-view-and-take.handlebars')
 
+// TODO: Refactor to include index attribute in data model
+// TODO: Figure out javascript syntax for documenting functions
+// TODO: Modify for an "ADD" button which will add 5 to the rows
+// Copies survey.options to survey.optionsWithIndex and adds index attribute
+// to keep track of the row to make it easy for handlebars.
+// Adds x number of blank rows to optionsWithIndex
+function _addOptionsWithIndex (survey, addBlankRows) {
+  const optionsWithIndex = survey.options.slice(0)
+  const rowsToDisplay = optionsWithIndex.length + addBlankRows
+  for (let i = 0; i < optionsWithIndex.length; i++) {
+    optionsWithIndex[i].optionArrayIndex = i
+  }
+  for (let j = optionsWithIndex.length; j < rowsToDisplay; j++) {
+    optionsWithIndex[j] = {
+      option: '',
+      optionArrayIndex: j
+    }
+  }
+  survey.optionsWithIndex = optionsWithIndex
+}
+
 // index all surveys (created by any user)
 const onIndexAllSurveysSuccess = function (response) {
   store.surveys = response.surveys
@@ -69,8 +90,10 @@ const onIndexMySurveysSuccess = function (response) {
 
 // show a single survey that a user wants to edit/update
 const onShowSurveySuccess = function (response) {
+  const survey = response.survey
+  _addOptionsWithIndex(survey, 5)
   const surveyFormHtml = updateSurveyForm({
-    survey: response.survey
+    survey: survey
   })
   $('.survey-content').html(surveyFormHtml)
   $('.message').text(`Edit your survey! Note: we ensured vote count remains if you update the text field for an option.`)
@@ -82,6 +105,7 @@ const onShowSurveySuccess = function (response) {
 // show a single survey with options to vote!
 const onViewTakeSurveySuccess = function (response) {
   store.survey = response.survey
+  _addOptionsWithIndex(response.survey, 0)
   const surveyHtml = viewTakeSurvey({
     survey: response.survey
   })
